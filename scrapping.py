@@ -64,7 +64,7 @@ coffees = pd.DataFrame(list(zip(coffee_titel, coffee_urls)), columns=['name','ur
 
 coffee_data=[]
 for i in coffee_urls:
-    # go to book page
+    # go to each detail page and get information
     driver.get(i['url'])
     origin = driver.find_element(by=By.XPATH, value='// div[1] /h3')
     aroma = driver.find_element(by=By.XPATH, value='//*[@id="app"]/main/section[2]/div/div[1]/div[2]/div[1]/table/tbody/tr[1]/td[2]')
@@ -73,7 +73,7 @@ for i in coffee_urls:
     driver.find_element(by=By.ID, value="vs1__option-3").click()
     price = driver.find_element(by=By.XPATH, value='//*[@id="vs1__combobox"]/div[1]/span')
     driver.quit()
-
+    coffee_titel.append({origin,aroma,flavour,price})
 
 
 
