@@ -53,13 +53,13 @@ def main():
         coffee_titel.append({titel})
 
     # Country information from overview page
-    coffee_origins = []
+    coffee_typ_origins = []
     coffee_country = driver.find_elements(
         by=By.CLASS_NAME,
         value='absolute.text-small.left-2.bottom-1.text-beige-hue3.tracking-wider')
     for location in coffee_country:
         origin = location.text
-        coffee_origins.append({origin})
+        coffee_typ_origins.append({origin})
 
     #extract aromatics from overview page
     coffee_aromas = []
@@ -69,21 +69,27 @@ def main():
         aroma = aroma.get_attribute("innerHTML")
         coffee_aromas.append(aroma)
 
+
+
     # price information
-    # coffee_price_kilo = []
-    # dropdown = driver.find_elements(by=By.CLASS_NAME, value='vs__dropdown-toggle')
-    # coffee_price_path = driver.find_elements(by=By.XPATH, value="//a[contains(text(), '1 kg')]")
-    # for element in dropdown:
-    #     try:
-    #         element.click()
-    #         for price in coffee_price_path:
-    #             time.sleep(3)
-    #             coffee_price = price.text
-    #             coffee_price_kilo.append({coffee_price})
-    #     except:
-    #         print("An exception occurred")
+
+    #first for standard size of 250g (default value by webpage)
+    coffee_price_250 = []
+    coffee_price_kg = []
+    dropdown = driver.find_elements(by=By.XPATH, value="//*[contains(text(),'250 g')]")
+
+    for i in dropdown:
+        price = i.text
+        coffee_price_250.append(price)
+        i.click()
+        time.sleep(1)
+        coffee_price_path = driver.find_element(by=By.XPATH, value="//*[contains(text(), '1 kg')]")
+        price_kg = coffee_price_path.text
+        coffee_price_kg.append(price_kg)
+
 
     # delete last element as it isn't a coffee type
+
     del coffee_titel[-1]
     del coffee_urls[-1]
 
@@ -97,6 +103,7 @@ def main():
     coffee_flavours = []
     coffee_roastlevel = []
     coffee_label = []
+    coffee_chart = []
 
     for i in coffee_urls:
         # go to each detail page and get information
@@ -108,6 +115,13 @@ def main():
             roastlevel = roastlevel.get_attribute('style')
             coffee_roastlevel.append(roastlevel)
 
+        #chartvalues
+        chart_path = driver.find_elements(by= By.XPATH, value= "/html/body/script[4]")
+
+        for i in chart_path:
+            chart = i.get_attribute("innerHTML")
+            coffee_chart.append({chart})
+
         # labels
         #using if-else loop as only a minority (less than 50%) of
         # entries have one or more labels - therefore more efficient
@@ -115,14 +129,15 @@ def main():
         # identify element
         label_path = driver.find_elements(by=By.XPATH, value="//*[contains(text(), 'Label')]")
         for i in label_path:
-        # get list size with len
-            s = len(label_path)
+            # get list size with len
+            s = len(i.text)
         # check condition, if list size > 0, element exists
-            if (s > 0):
-                label = i.text
-                coffee_label.append(label)
-            else:
-                coffee_label.append("NaN")
+            for i in label_path:
+                if (s > 0):
+                    label = i.text
+                    coffee_label.append({label})
+                else:
+                    coffee_label.append("NaN")
 
         # origin_path = driver.find_element(by=By.XPATH, value='//*[@id="app"]/header/div[1]/div/div[3]/div[2]/div[1]/div[1]/h3')
         # origin = origin_path.text
@@ -135,8 +150,8 @@ def main():
         # coffee_titel.append({origin,aroma,flavour,price})
 
     coffees = pd.DataFrame(
-        list(zip(coffee_titel, coffee_urls, coffee_origins, coffee_aromas, coffee_roastlevel, coffee_label)),
-        columns=['name', 'url', 'country', 'aroma', 'coffee_roastlevel', 'label'])
+        list(zip(coffee_titel, coffee_urls, coffee_price_250, coffee_price_kg, coffee_typ_origins, coffee_aromas, coffee_roastlevel, coffee_label, coffee_chart)),
+        columns=['name', 'url', 'price250g', 'price1000g', 'blend/country', 'aroma', 'coffee_roastlevel', 'labels', 'chartjs data'])
     coffees.to_csv("coffee_rast.csv")
 
     #
