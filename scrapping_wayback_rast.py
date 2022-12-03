@@ -1,5 +1,4 @@
 def main():
-    # import pandas, time, and webdriver of selenium, with all the needed functions
     import pandas as pd
     import time
     from selenium import webdriver
@@ -16,28 +15,25 @@ def main():
     chrome_options = Options()
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--headless")
-    chrome_options.headless = True
 
     # Silent download of drivers
     logging.getLogger('WDM').setLevel(logging.NOTSET)
     os.environ['WDM_LOG'] = 'False'
 
+    # Create service
+    webdriver_service = Service(ChromeDriverManager().install())
 
-    # Shop URL of coffee roastery displaying all the coffees available
-    page_url = 'https://www.rastshop.ch/de'
+    # Create driver
+    driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
 
-    #install fresh webdriver
+    # URL of coffee roastery displaying all the coffees available
+    page_url = 'https://web.archive.org/web/20220328051504/https://www.rastshop.ch/de'
+
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    driver = webdriver.Chrome(options=chrome_options)
-
-    # ---------------setup finished--------
-    # get URL and open browser to start scrapping
     driver.get(page_url)
-    ## Setup chrome options
 
-    # Click on Accept cookies to get the banner away  Set 2 seconds to wait till everything is loaded
-    time.sleep(2)
-    # path of button to click accept
+    # # Click on Accept cookies
+    time.sleep(5)
     driver.find_element(By.XPATH, '//*[@id="app"]/footer/div/div[3]/div[2]/button').click()
 
     # find URLs of coffees currently offered
@@ -45,17 +41,15 @@ def main():
 
     coffee_urls = []  # empty list for the urls
     for link in coffee_links:  # loop to get each url
-        url = link.get_attribute('href') # get the URL attribute (href)
-        coffee_urls.append(url) # append each URL into the empty list
-    del coffee_urls[-1]
+        url = link.get_attribute('href')
+        coffee_urls.append({"url": url})
 
     # the name of the coffee is in another object so the xpath methode is used
     coffee_names = driver.find_elements(by=By.XPATH, value='//h3')
     coffee_titel = []  # empty list for the names
     for name in coffee_names:  # loop to get each name
-        title = name.text # get the text of this element
-        coffee_titel.append(title) # add to list
-    del coffee_titel[-1]
+        titel = name.text
+        coffee_titel.append({titel})
 
     # Country information from overview page
     coffee_typ_origins = []
@@ -64,7 +58,7 @@ def main():
         value='absolute.text-small.left-2.bottom-1.text-beige-hue3.tracking-wider')
     for location in coffee_country:
         origin = location.text
-        coffee_typ_origins.append(origin)
+        coffee_typ_origins.append({origin})
 
     #extract aromatics from overview page
     coffee_aromas = []
@@ -73,6 +67,8 @@ def main():
     for aroma in aroma_path:
         aroma = aroma.get_attribute("innerHTML")
         coffee_aromas.append(aroma)
+
+
 
     # price information
 
@@ -89,13 +85,17 @@ def main():
         price_kg = coffee_price_path.text
         coffee_price_kg.append(price_kg)
 
-    print([coffee_titel, coffee_urls, coffee_typ_origins, coffee_aromas, coffee_price_250, coffee_price_kg])
 
-    # add lists from the scrapped data into a pandas dataframe, which will be
-    # expanded with more data from the specific coffee detail pages
-    coffees = pd.DataFrame(
-        list(zip(coffee_titel, coffee_urls, coffee_typ_origins, coffee_aromas, coffee_price_250, coffee_price_kg)),
-        columns=['name','url', 'typ_origin', 'taste', 'price_250g', 'price_1000g'])
+    # delete last element as it isn't a coffee type
+
+    del coffee_titel[-1]
+    del coffee_urls[-1]
+
+    # clean country and split classification in new row
+
+    # add list into a pandas dataframe which will be expanded with more data from the specific coffee detailpages
+    # coffees = pd.DataFrame(list(zip(coffee_titel, coffee_urls)), columns=['name','url'])
+    # coffees.to_csv("coffee_rast.csv")
 
     coffee_roastlevel = []
     coffee_label = []
@@ -103,14 +103,13 @@ def main():
 
     for i in coffee_urls:
         # go to each detail page and get information
-        driver.get(i)
+        driver.get(i['url'])
         roastlevel_path = driver.find_elements(
             by=By.XPATH,
             value = '//*[@id="app"]/main/section[2]/div/div[1]/div[2]/div[2]/div[1]/div/div')
         for roastlevel in roastlevel_path:
             roastlevel = roastlevel.get_attribute('style')
             coffee_roastlevel.append(roastlevel)
-        coffees['roastlevel'] = coffee_roastlevel
 
         #chartvalues
         chart_path = driver.find_elements(by= By.XPATH, value= "/html/body/script[4]")
@@ -118,7 +117,6 @@ def main():
         for i in chart_path:
             chart = i.get_attribute("innerHTML")
             coffee_chart.append({chart})
-        coffees['chartjs'] = coffee_chart
 
         # labels
         #using if-else loop as only a minority (less than 50%) of
@@ -145,11 +143,24 @@ def main():
 
         # driver.quit()
         # coffee_titel.append({origin,aroma,flavour,price})
-    coffees['label'] = coffee_label
 
-    #coffees = pd.DataFrame(
-        #list(zip(coffee_titel, coffee_urls, coffee_price_250, coffee_price_kg, coffee_typ_origins, coffee_aromas, coffee_roastlevel, coffee_label, coffee_chart)))
-    coffees.to_csv("coffee_rast1.csv")
+    coffees = pd.DataFrame(
+        list(zip(coffee_titel, coffee_urls, coffee_price_250, coffee_price_kg, coffee_typ_origins, coffee_aromas, coffee_roastlevel, coffee_label, coffee_chart)),
+        columns=['name', 'url', 'price250g', 'price1000g', 'blend/country', 'aroma', 'coffee_roastlevel', 'labels', 'chartjs data'])
+    coffees.to_csv("coffee_wayback_rast_march.csv")
+
+    #
+    # #-------------------------------------
+    # coffee_names =[]
+    #
+    # for coffee in coffee_urls:
+    #     driver.get(coffee['url'])
+    #     coffee_names = driver.find_elements(by=By.CLASS_NAME, value='text-h1 text-white font-bold')
+    #     for name in coffee_names:
+    #         coffee.append({'Name': name.text})
+    #
+    # pd.DataFrame(coffee_names)
+
 
 if __name__ == "__main__":
     main()

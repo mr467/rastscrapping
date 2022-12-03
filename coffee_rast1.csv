@@ -1,0 +1,65 @@
+,name,url,taste,price250
+0,{'Tavola Espresso'},{'url': 'https://www.rastshop.ch/de/kaffee/tavola-espresso'},"Kakao, geröstete Haselnuss",250 g à CHF 7.00
+1,{'Mocca'},{'url': 'https://www.rastshop.ch/de/kaffee/mocca'},Schwarzbrot,250 g à CHF 6.50
+2,{'Visconti'},{'url': 'https://www.rastshop.ch/de/kaffee/visconti'},dunkle Schokolade,250 g à CHF 6.50
+3,{'Wiener'},{'url': 'https://www.rastshop.ch/de/kaffee/wiener'},"Toast, Zartbitterschokolade",250 g à CHF 6.80
+4,{'Eldorado'},{'url': 'https://www.rastshop.ch/de/kaffee/eldorado'},"Süssholz, Geranie, frische Erde",250 g à CHF 7.00
+5,{'Premium'},{'url': 'https://www.rastshop.ch/de/kaffee/premium'},"Mandeln, Brotkruste",250 g à CHF 7.00
+6,{'Latino No 2'},{'url': 'https://www.rastshop.ch/de/kaffee/latino-no-2'},"Malz, Aprikose, Pflaume, Zwetschge, Mandeln",250 g à CHF 7.00
+7,{'Festival'},{'url': 'https://www.rastshop.ch/de/kaffee/festival'},"dunkle Beeren, Schokolade, Akazienhonig",250 g à CHF 7.50
+8,{'Barista Crème'},{'url': 'https://www.rastshop.ch/de/kaffee/barista-creme'},"Schokolade, Akazienhonig, Beeren, Vanille, Brot",250 g à CHF 7.50
+9,{'Latino No 5'},{'url': 'https://www.rastshop.ch/de/kaffee/latino-no-5'},nussig,250 g à CHF 9.00
+10,{'Fairtrade Crème'},{'url': 'https://www.rastshop.ch/de/kaffee/fairtrade-creme'},"dunkle Schokolade, Haselnuss, Karamell",250 g à CHF 7.30
+11,{'Bio Crème'},{'url': 'https://www.rastshop.ch/de/kaffee/bio-creme'},"Waldbeere, schwarze Kirsche",250 g à CHF 7.80
+12,{'Rainforest Crème'},{'url': 'https://www.rastshop.ch/de/kaffee/rainforest-creme'},"Baumnuss, Schokolade, herb",250 g à CHF 6.80
+13,{'Christmas Edition'},{'url': 'https://www.rastshop.ch/de/kaffee/christmas-edition'},"Datteln, Orange, leicht Nelke",250 g à CHF 8.80
+14,{'Jubiläums-Edition'},{'url': 'https://www.rastshop.ch/de/kaffee/jubilaums-edition'},"Aprikose, Zwetschge, Mandeln",250 g à CHF 7.50
+15,{'Tavola Crème'},{'url': 'https://www.rastshop.ch/de/kaffee/tavola-creme'},"dunkle Schokolade, Walnuss",250 g à CHF 6.80
+16,{'Home-Office'},{'url': 'https://www.rastshop.ch/de/kaffee/home-office'},"Haselnuss, getrocknete Aprikose",250 g à CHF 7.50
+17,{'Milano'},{'url': 'https://www.rastshop.ch/de/kaffee/milano'},"dunkle Schokolade, würzig",250 g à CHF 6.80
+18,{'Roma'},{'url': 'https://www.rastshop.ch/de/kaffee/roma'},"würzig, angenehme Röstaromen",250 g à CHF 7.00
+19,{'Sicilia'},{'url': 'https://www.rastshop.ch/de/kaffee/sicilia'},"nussig, Bittermandel",250 g à CHF 6.80
+20,{'Venezia'},{'url': 'https://www.rastshop.ch/de/kaffee/venezia'},"süsse, rote Beeren",250 g à CHF 7.00
+21,{'Vesuvio'},{'url': 'https://www.rastshop.ch/de/kaffee/vesuvio'},"würzig, leichte Rauchnote",250 g à CHF 7.00
+22,{'Barista Espresso'},{'url': 'https://www.rastshop.ch/de/kaffee/barista-espresso'},"Mandel, Zitrusnote",250 g à CHF 7.00
+23,{'Tropical Rainforest'},{'url': 'https://www.rastshop.ch/de/kaffee/tropical-rainforest'},"Süssholz, Karamell, gebrannte Mandeln",250 g à CHF 6.50
+24,{'Fairtrade Espresso'},{'url': 'https://www.rastshop.ch/de/kaffee/fairtrade-espresso'},"Haselnuss, Süssholz, dunkle Schokolade",250 g à CHF 6.80
+25,{'Bio Espresso'},{'url': 'https://www.rastshop.ch/de/kaffee/bio-espresso'},dunkle Nussschokolade,250 g à CHF 7.50
+26,{'Rainforest Espresso'},{'url': 'https://www.rastshop.ch/de/kaffee/rainforest-espresso'},"Bittermandel, dunkle Schokolade",250 g à CHF 6.50
+27,{'Palmichal'},{'url': 'https://www.rastshop.ch/de/kaffee/palmichal'},"Asam, Lakritz, Pfirsich",250 g à CHF 8.30
+28,{'Serrano Lavado'},{'url': 'https://www.rastshop.ch/de/kaffee/serrano-lavado'},"Walnuss, dunkle Schokolade",250 g à CHF 8.30
+29,{'Herminio Bio'},{'url': 'https://www.rastshop.ch/de/kaffee/herminio-bio'},"Zitrus, Früchtetee, Nussschokolade",250 g à CHF 8.30
+30,{'Buena Vista'},{'url': 'https://www.rastshop.ch/de/kaffee/buena-vista'},"Baumnuss, leichte Johannisbeere",250 g à CHF 8.80
+31,{'Blue Mountain'},{'url': 'https://www.rastshop.ch/de/kaffee/blue-mountain'},"Erdnuss, Haselnuss, Karamell, Schokolade",250 g à CHF 39.50
+32,{'Iglesia'},{'url': 'https://www.rastshop.ch/de/kaffee/iglesia-finca-hamburgo'},"Limette, Assam-Tee, Mandel, Walnuss",250 g à CHF 11.80
+33,{'Berilo Bio'},{'url': 'https://www.rastshop.ch/de/kaffee/berilo-bio'},"getrocknete Aprikose, Kakao und Mandel",250 g à CHF 8.00
+34,{'Comsa Bio Fairtrade'},{'url': 'https://www.rastshop.ch/de/kaffee/comsa-bio-fairtrade'},"Orange, Tabak, Baumnuss",250 g à CHF 8.30
+35,{'Gesha natural'},{'url': 'https://www.rastshop.ch/de/kaffee/gesha-natural'},"Pflaume, Mango, Ananas",250 g à CHF 39.50
+36,{'Gesha washed'},{'url': 'https://www.rastshop.ch/de/kaffee/gesha-washed'},"Bergamotte, Jasmin, Honig, Apfel",250 g à CHF 39.50
+37,{'Bahareque Fairtrade'},{'url': 'https://www.rastshop.ch/de/kaffee/bahareque-fairtrade'},"nussig, Schokolade, Pfirsich",250 g à CHF 8.00
+38,{'Vista Alegre'},{'url': 'https://www.rastshop.ch/de/kaffee/fazenda-vista-alegre'},"Steinobst, Haselnuss, Honig",250 g à CHF 7.50
+39,{'Apas Fairtrade'},{'url': 'https://www.rastshop.ch/de/kaffee/apas-fairtrade'},"Muskat, Bitterschokolade, süsslich",250 g à CHF 7.80
+40,{'Taioba'},{'url': 'https://www.rastshop.ch/de/kaffee/taioba'},"Bitterschokolade, Lebkuchen, Karamell, Kandis",250 g à CHF 9.80
+41,{'Yellow Bourbon'},{'url': 'https://www.rastshop.ch/de/kaffee/yellow-bourbon-fazenda-samambaia'},"Honig, Baumnuss",250 g à CHF 8.00
+42,{'El Palto BIO Fairtrade'},{'url': 'https://www.rastshop.ch/de/kaffee/el-palto-bio-fairtrade'},"Schokolade, Bittermandel",250 g à CHF 8.00
+43,{'Vilcabamba'},{'url': 'https://www.rastshop.ch/de/kaffee/vilcabamba'},dunkle Schokolade,250 g à CHF 9.30
+44,{'Pink Bourbon'},{'url': 'https://www.rastshop.ch/de/kaffee/pink-bourbon'},"Baumnuss, Lakritze",250 g à CHF 10.30
+45,{'Guji BIO'},{'url': 'https://www.rastshop.ch/de/kaffee/guji'},"Orange, leichte Schokoladennote",250 g à CHF 8.00
+46,{'Yirga Cheffe BIO'},{'url': 'https://www.rastshop.ch/de/kaffee/yirga-cheffe-bio'},"Limettenzeste, Pfirsich, Lakritze",250 g à CHF 9.30
+47,{'Limu'},{'url': 'https://www.rastshop.ch/de/kaffee/limu'},"Aprikose, tropische Früchte, Schwarztee",250 g à CHF 7.80
+48,{'Nyeri'},{'url': 'https://www.rastshop.ch/de/kaffee/nyeri-kenia'},"Grapefruit, Cassis",250 g à CHF 9.50
+49,{'Bukoba Bio Fairtrade'},{'url': 'https://www.rastshop.ch/de/kaffee/bukoba-bio-fairtrade'},"würzig, dunkle Schokolade",250 g à CHF 7.30
+50,{'Laurina Pointu de Bourbon'},{'url': 'https://www.rastshop.ch/de/kaffee/laurina-pointu-de-bourbon'},"Litschi, Gewürze, Kakao",250 g à CHF 122.00
+51,{'Butihinda'},{'url': 'https://www.rastshop.ch/de/kaffee/butihinda'},"Schwarztee, Pfirsich",250 g à CHF 9.30
+52,{'Somaho'},{'url': 'https://www.rastshop.ch/de/kaffee/somaho'},"Mango, Pfirsich, leicht blumig",250 g à CHF 10.30
+53,{'Java Baron'},{'url': 'https://www.rastshop.ch/de/kaffee/java-baron'},"Kakao, Walnuss, leichte Tabaknoten",250 g à CHF 7.30
+54,"{'Mandheling, Gold'}",{'url': 'https://www.rastshop.ch/de/kaffee/mandheling-gold'},"würzig, leicht fruchtig",250 g à CHF 8.00
+55,{'Malabar'},{'url': 'https://www.rastshop.ch/de/kaffee/malabar-monsooned-aspinwall'},"nussig, mild, Gewürze",250 g à CHF 7.50
+56,{'Plantation RFA'},{'url': 'https://www.rastshop.ch/de/kaffee/plantation-rfa'},"würzig, Schokolade, leicht Pflaume",250 g à CHF 7.50
+57,{'Kerkeicoondah'},{'url': 'https://www.rastshop.ch/de/kaffee/kerkeicoondah-balehonnur-farm'},"nussig, würzig, schokoladig",250 g à CHF 9.30
+58,{'Blawan'},{'url': 'https://www.rastshop.ch/de/kaffee/blawan'},"Schwarztee, Süssholz, Schokolade",250 g à CHF 8.00
+59,{'Aceh Mandheling BIO Fairtrade'},{'url': 'https://www.rastshop.ch/de/kaffee/aceh-mandheling-bio-fairtrade'},"würzig, Schokolade, Himbeeren",250 g à CHF 8.50
+60,{'Sigri'},{'url': 'https://www.rastshop.ch/de/kaffee/sigri-estate-plantation'},"nussig, leicht fruchtig",250 g à CHF 8.00
+61,{'Captain Cook'},{'url': 'https://www.rastshop.ch/de/kaffee/captain-cook'},"Schokolade, getrocknete Feigen, leicht Zitrus",250 g à CHF 42.00
+62,{'Dornröschen'},{'url': 'https://www.rastshop.ch/de/kaffee/dornroschen'},"dunkle Schokolade, getrocknete Aprikosen",250 g à CHF 7.50
+63,{'Koffeinfrei Fairtrade'},{'url': 'https://www.rastshop.ch/de/kaffee/koffeinfrei-fairtrade'},Schokolade,250 g à CHF 8.00
