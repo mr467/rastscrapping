@@ -31,12 +31,12 @@ def main():
     driver = webdriver.Chrome(options=chrome_options)
 
     # ---------------setup finished--------
-    # get URL and open browser to start scrapping
+    # get URL and open browser to start scraping
     driver.get(page_url)
     ## Setup chrome options
 
     # Click on Accept cookies to get the banner away  Set 2 seconds to wait till everything is loaded
-    time.sleep(2)
+    time.sleep(3)
     # path of button to click accept
     driver.find_element(By.XPATH, '//*[@id="app"]/footer/div/div[3]/div[2]/button').click()
 
@@ -89,13 +89,13 @@ def main():
         price_kg = coffee_price_path.text
         coffee_price_kg.append(price_kg)
 
-    # add lists from the scrapped data into a pandas dataframe, which will be
+    # add lists from the scraped data into a pandas dataframe, which will be
     # expanded with more data from the specific coffee detail pages
     coffees = pd.DataFrame(
         list(zip(coffee_titel, coffee_urls, coffee_typ_origins, coffee_aromas, coffee_price_250, coffee_price_kg)),
         columns=['name','url', 'typ_origin', 'taste', 'price_250g', 'price_1000g'])
 
-# ------------detailpage starts here------------
+# ------------scraping of detail page starts here------------
 
     # three empty lists for the information of the detail page
     coffee_roast_level = []
@@ -119,16 +119,25 @@ def main():
 
         coffee_roast_level.append(t)
 
+
+
         #chartvalues
         chart_path = driver.find_elements(by= By.XPATH, value= "/html/body/script[4]")
 
         for i in chart_path:
             chart = i.get_attribute("innerHTML")
             coffee_chart.append({chart})
-
-        # labels
-        #using if-else loop as only a minority (less than 50%) of
-        # entries have one or more labels - therefore more efficient
+        # #chartvalues
+        # chart_path = driver.find_elements(by= By.XPATH, value= "/html/body/script[4]")
+        # c=[]
+        # for i in chart_path:
+        #     if chart_path:
+        #         chart = i.get_attribute("innerHTML")
+        #         c.append(chart)
+        #     else:
+        #         c.append("NaN")
+        #
+        # coffee_chart.append(c)
 
         # identify element
         label_path = driver.find_elements(by=By.XPATH, value="//*[contains(text(), 'Label')]")

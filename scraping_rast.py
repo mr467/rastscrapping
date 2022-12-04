@@ -124,7 +124,7 @@ def main():
 
         for i in chart_path:
             chart = i.get_attribute("innerHTML")
-            coffee_chart.append({chart})
+            coffee_chart.append(chart)
 
         # labels
         #using if-else loop as only a minority (less than 50%) of
