@@ -12,7 +12,7 @@ def main():
     import os
     import logging
 
-    ## Setup chrome options
+    # ------------Setup chrome options------------
     chrome_options = Options()
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--headless")
@@ -95,7 +95,8 @@ def main():
         list(zip(coffee_titel, coffee_urls, coffee_typ_origins, coffee_aromas, coffee_price_250, coffee_price_kg)),
         columns=['name','url', 'typ_origin', 'taste', 'price_250g', 'price_1000g'])
 
-    print(coffees.head(5))
+# ------------detailpage starts here------------
+
     # three empty lists for the information of the detail page
     coffee_roast_level = []
     coffee_label = []
@@ -143,21 +144,9 @@ def main():
 
         coffee_label.append(p)
 
-        # origin_path = driver.find_element(by=By.XPATH, value='//*[@id="app"]/header/div[1]/div/div[3]/div[2]/div[1]/div[1]/h3')
-        # origin = origin_path.text
-
-        # driver.find_element(by= By.ID, value='vs1__combobox').click()
-        # driver.find_element(by=By.ID, value="vs1__option-3").click()
-        # price = driver.find_element(by=By.XPATH, value='//*[@id="vs1__combobox"]/div[1]/span')
-
-        # driver.quit()
-        # coffee_titel.append({origin,aroma,flavour,price})
     coffees['label'] = coffee_label
     coffees['roastlevel'] = coffee_roast_level
     coffees['chartjs'] = coffee_chart
-
-    #coffees = pd.DataFrame(
-        #list(zip(coffee_titel, coffee_urls, coffee_price_250, coffee_price_kg, coffee_typ_origins, coffee_aromas, coffee_roast_level, coffee_label, coffee_chart)))
     coffees.to_csv("coffee_rast1.csv")
 
 if __name__ == "__main__":
