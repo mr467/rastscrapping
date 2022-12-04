@@ -16,7 +16,7 @@ print(raw.head(4))
 # removing unwanted {url: } part in the url column
 raw['url'] = raw['url'].str.rstrip("'}").str.lstrip("{'url': '")
 
-# -----------prices-----------
+# -----------prices & weight-----------
 # 250g
 # split pricing into multiple columns from one column like 250g à 10.00 CHF into 3 columns for weight, numeric price
 # and currency
@@ -38,6 +38,8 @@ raw[['curreny', "price1000"]]= raw.price1000gcurrency.str.split(' ', expand=True
 
 #remove the g in the weight column
 raw['Weight1000'] = raw['Weight1000'].str.rstrip(" g ")
+raw['Weight1000'] = raw['Weight1000'].replace(to_replace="1 k", value= '1000')
+
 
 
 # -----------origin and typ-----------
@@ -45,6 +47,8 @@ raw['Weight1000'] = raw['Weight1000'].str.rstrip(" g ")
 # splitting the information in the origin_typ field into two separate fields
 raw[['typ', 'origin_list']]= raw.typ_origin.str.split(pat="\n", expand=True)
 raw = raw.drop('typ_origin', axis=1)
+
+raw[['country1', 'country2','country3','country4','country5']] = raw['origin_list'].str.split(',', expand=True)
 
 # -----------roastlevel-----------
 
@@ -54,6 +58,16 @@ raw['roastlevel'] = raw['roastlevel'].str.rstrip("%;']").str.lstrip("['right: ")
 raw['roastlevel'] = pd.to_numeric(raw['roastlevel'])
 # roastlevel is shown on a scale pointing from the right side. Correcting it in this way
 raw['roastlevel'] = raw['roastlevel'].apply(lambda x: x * (-1)+100)
+
+# new column with standardized categories for comparing with other data and roasteries
+
+roastlevel = raw['roastlevel']
+
+cond_list = [roastlevel < 20.00, roastlevel < 40.00, roastlevel < 60.00, roastlevel < 80, roastlevel >= 80]
+choice_list = ["1", "2", "3", "4", "5"]
+
+raw["roastlevel_cat"] = np.select(cond_list, choice_list)
+
 
 # -----------labels-----------
 
@@ -78,11 +92,12 @@ for row in raw['chartjs']:
     chart_raw_values.append(values)
 raw['chart_values'] = chart_raw_values
 
-# filter the first 10 values of each row
-
-#list for labels
-chart_labels = ["Süsse", "Bitterkeit", "Blumig", " Fruchtig", "Nussig", "Würzig", "Röstartig", "Körper",
+# list for labels for naming the new columns, in the correct order
+chart_labels = ["Süsse", "Bitterkeit", "Blumig", "Fruchtig", "Nussig", "Würzig", "Röstartig", "Körper",
                 "Abgang", "Säure"]
+
+# split by comma and use labels for naming
+raw[chart_labels] = raw['chart_values'].str.split(',', expand=True)
 
 raw.to_csv("coffee_rast_cleaned.csv")
 

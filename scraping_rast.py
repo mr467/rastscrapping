@@ -120,10 +120,14 @@ def main():
 
         #chartvalues
         chart_path = driver.find_elements(by= By.XPATH, value= "/html/body/script[4]")
-
+        c = []
         for i in chart_path:
-            chart = i.get_attribute("innerHTML")
-            coffee_chart.append(chart)
+            if chart_path:
+                chart = i.get_attribute("innerHTML")
+                c.append(chart)
+            else:
+                c.append("NaN")
+        coffee_chart.append(c)
 
         # labels
         #using if-else loop as only a minority (less than 50%) of
@@ -143,6 +147,9 @@ def main():
 
         coffee_label.append(p)
 
+    # closing selenium
+    driver.close()
+    # adding the lists with the values from the overview page together
     coffees['label'] = coffee_label
     coffees['roastlevel'] = coffee_roast_level
     coffees['chartjs'] = coffee_chart
