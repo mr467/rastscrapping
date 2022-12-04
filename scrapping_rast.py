@@ -147,7 +147,7 @@ def main():
     coffees['label'] = coffee_label
     coffees['roastlevel'] = coffee_roast_level
     coffees['chartjs'] = coffee_chart
-    coffees.to_csv("coffee_rast1.csv")
+    coffees.to_csv("coffee_rast_raw.csv")
 
 if __name__ == "__main__":
     main()
