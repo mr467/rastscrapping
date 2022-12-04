@@ -22,7 +22,6 @@ def main():
     logging.getLogger('WDM').setLevel(logging.NOTSET)
     os.environ['WDM_LOG'] = 'False'
 
-
     # Shop URL of coffee roastery displaying all the coffees available
     page_url = 'https://www.rastshop.ch/de'
 
