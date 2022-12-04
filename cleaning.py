@@ -1,4 +1,4 @@
-import scrapping_rast
+import scraping_rast
 import pandas as pd
 import numpy as np
 
@@ -37,7 +37,28 @@ raw['Weight1000'] = raw['Weight1000'].str.rstrip(" g ")
 # splitting the information in the origin_typ field into two separate fields
 raw[['typ', 'origin_list']]= raw.typ_origin.str.split(pat="\n", expand=True)
 raw = raw.drop('typ_origin', axis=1)
-# additional normalizing of origin_list into multiple column
+
+#cleaning roastlevel
+
+#first remove part of string to get only nummeric value
+raw['roastlevel'] = raw['roastlevel'].str.rstrip("%;']").str.lstrip("['right: ")
+# adjust datatype to float
+raw['roastlevel'] = pd.to_numeric(raw['roastlevel'])
+# roastlevel is shown on a scale pointing from the right side. Correcting it in this way
+raw['roastlevel'] = raw['roastlevel'].apply(lambda x: x * (-1)+100)
+
+# cleaning label column
+
+# first filling NaN values correctly
+raw['label'] = raw['label'].replace(to_replace="['']", value= 'NaN')
+
+
+
+
+
+
+
+
 
 # drop columns which aren't needed anymore
 raw = raw.drop(raw.columns[[0, 4, 5, 10, 14]], axis=1)
