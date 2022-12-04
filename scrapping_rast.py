@@ -46,7 +46,7 @@ def main():
     coffee_urls = []  # empty list for the urls
     for link in coffee_links:  # loop to get each url
         url = link.get_attribute('href') # get the URL attribute (href)
-        coffee_urls.append(url) # append each URL into the empty list
+        coffee_urls.append({"url": url}) # append each URL into the empty list
     del coffee_urls[-1]
 
     # the name of the coffee is in another object so the xpath methode is used
@@ -89,28 +89,34 @@ def main():
         price_kg = coffee_price_path.text
         coffee_price_kg.append(price_kg)
 
-    print([coffee_titel, coffee_urls, coffee_typ_origins, coffee_aromas, coffee_price_250, coffee_price_kg])
-
     # add lists from the scrapped data into a pandas dataframe, which will be
     # expanded with more data from the specific coffee detail pages
     coffees = pd.DataFrame(
         list(zip(coffee_titel, coffee_urls, coffee_typ_origins, coffee_aromas, coffee_price_250, coffee_price_kg)),
         columns=['name','url', 'typ_origin', 'taste', 'price_250g', 'price_1000g'])
 
-    coffee_roastlevel = []
+    print(coffees.head(5))
+    # three empty lists for the information of the detail page
+    coffee_roast_level = []
     coffee_label = []
     coffee_chart = []
 
+    #loop through the captured urls from the overview
     for i in coffee_urls:
-        # go to each detail page and get information
-        driver.get(i)
+        # use the urls for the driver to visit
+        driver.get(i['url'])
         roastlevel_path = driver.find_elements(
             by=By.XPATH,
             value = '//*[@id="app"]/main/section[2]/div/div[1]/div[2]/div[2]/div[1]/div/div')
-        for roastlevel in roastlevel_path:
-            roastlevel = roastlevel.get_attribute('style')
-            coffee_roastlevel.append(roastlevel)
-        coffees['roastlevel'] = coffee_roastlevel
+        t=[]
+        for i in roastlevel_path:
+            if roastlevel_path:
+                roast_level = i.get_attribute('style')
+                t.append(roast_level)
+            else:
+                t.append("NaN")
+
+        coffee_roast_level.append(t)
 
         #chartvalues
         chart_path = driver.find_elements(by= By.XPATH, value= "/html/body/script[4]")
@@ -118,7 +124,6 @@ def main():
         for i in chart_path:
             chart = i.get_attribute("innerHTML")
             coffee_chart.append({chart})
-        coffees['chartjs'] = coffee_chart
 
         # labels
         #using if-else loop as only a minority (less than 50%) of
@@ -127,14 +132,16 @@ def main():
         # identify element
         label_path = driver.find_elements(by=By.XPATH, value="//*[contains(text(), 'Label')]")
         p=[]
+
         for i in label_path:
-            s = len(i.text)
-            if s > 0:
+
+            if label_path:
                 label = i.text
                 p.append(label)
             else:
-                coffee_label.append("NaN")
-            coffee_label.append(p)
+                p.append("NaN")
+
+        coffee_label.append(p)
 
         # origin_path = driver.find_element(by=By.XPATH, value='//*[@id="app"]/header/div[1]/div/div[3]/div[2]/div[1]/div[1]/h3')
         # origin = origin_path.text
@@ -146,9 +153,11 @@ def main():
         # driver.quit()
         # coffee_titel.append({origin,aroma,flavour,price})
     coffees['label'] = coffee_label
+    coffees['roastlevel'] = coffee_roast_level
+    coffees['chartjs'] = coffee_chart
 
     #coffees = pd.DataFrame(
-        #list(zip(coffee_titel, coffee_urls, coffee_price_250, coffee_price_kg, coffee_typ_origins, coffee_aromas, coffee_roastlevel, coffee_label, coffee_chart)))
+        #list(zip(coffee_titel, coffee_urls, coffee_price_250, coffee_price_kg, coffee_typ_origins, coffee_aromas, coffee_roast_level, coffee_label, coffee_chart)))
     coffees.to_csv("coffee_rast1.csv")
 
 if __name__ == "__main__":
