@@ -69,18 +69,14 @@ raw['label'] = raw['label'].str.replace("', '", ", ")
 # looping through chart rows, filtering for first [] brackets
 chart_raw_values = []
 for row in raw['chartjs']:
-    brackets = re.findall(r'(?<=\[).+?(?=\])', row)
-    chart_raw_values.append(brackets)
-
-
+    # find() method will search the row and store the first index
+    mk1 = row.find('[') + 1
+    # find() method will search the row and store the second index
+    mk2 = row.find(']', mk1)
+    # using slicing to get the values between the two markers
+    values = row[mk1: mk2]
+    chart_raw_values.append(values)
 raw['chart_values'] = chart_raw_values
-values = []
-for row in raw['chart_values']:
-    for n in row:
-        int(filter(str.isdigit, just))
-
-raw['chart_values'] = values
-int(filter(str.isdigit, just))
 
 # filter the first 10 values of each row
 
