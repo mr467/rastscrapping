@@ -5,7 +5,7 @@ import re
 
 
 # import csv files from the exports
-raw = pd.read_csv("coffee_rast_raw.csv")
+raw = pd.read_csv("coffee_wayback_raw.csv")
 # quick look at the data
 print(raw.head(4))
 
@@ -83,6 +83,8 @@ raw['label'] = raw['label'].str.replace("', '", ", ")
 # looping through chart rows, filtering for first [] brackets
 chart_raw_values = []
 for row in raw['chartjs']:
+    re.sub(r"[\[\]]", '', row)
+
     # find() method will search the row and store the first index
     mk1 = row.find('[') + 1
     # find() method will search the row and store the second index
@@ -99,5 +101,5 @@ chart_labels = ["Süsse", "Bitterkeit", "Blumig", "Fruchtig", "Nussig", "Würzig
 # split by comma and use labels for naming
 raw[chart_labels] = raw['chart_values'].str.split(',', expand=True)
 
-raw.to_csv("coffee_rast_cleaned.csv")
+raw.to_csv("coffee_wayback_cleaned.csv")
 

@@ -22,6 +22,7 @@ def main():
     logging.getLogger('WDM').setLevel(logging.NOTSET)
     os.environ['WDM_LOG'] = 'False'
 
+
     # Shop URL of coffee roastery displaying all the coffees available
     page_url = 'https://www.rastshop.ch/de'
 
@@ -120,15 +121,10 @@ def main():
 
         #chartvalues
         chart_path = driver.find_elements(by= By.XPATH, value= "/html/body/script[4]")
-        c = []
-        for i in chart_path:
-            if chart_path:
-                chart = i.get_attribute("innerHTML")
-                c.append(chart)
-            else:
-                c.append("NaN")
-        coffee_chart.append(c)
 
+        for i in chart_path:
+            chart = i.get_attribute("innerHTML")
+            coffee_chart.append(chart)
         # labels
         #using if-else loop as only a minority (less than 50%) of
         # entries have one or more labels - therefore more efficient
@@ -147,9 +143,6 @@ def main():
 
         coffee_label.append(p)
 
-    # closing selenium
-    driver.close()
-    # adding the lists with the values from the overview page together
     coffees['label'] = coffee_label
     coffees['roastlevel'] = coffee_roast_level
     coffees['chartjs'] = coffee_chart
