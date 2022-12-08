@@ -1,0 +1,121 @@
+,name,url,typ_origin,taste,price_250g,price_1000g,timestamp
+0,Mocca,{'url': 'https://www.rastshop.ch/de/kaffee/mocca'},"Kaffee-Mischung
+Indonesien, Brasilien, Costa Rica",Schwarzbrot,250 g à CHF 6.30,1 kg à CHF 22.90,2022-12-08 14:16:54.085692+00:00
+1,Visconti,{'url': 'https://www.rastshop.ch/de/kaffee/visconti'},"Kaffee-Mischung
+Brasilien, Kolumbien, Indonesien, Costa Rica",dunkle Schokolade,250 g à CHF 6.30,1 kg à CHF 22.90,2022-12-08 14:16:54.177828+00:00
+2,Wiener,{'url': 'https://www.rastshop.ch/de/kaffee/wiener'},"Kaffee-Mischung
+Guatemala, Indonesien, Costa Rica, Brasilien","Toast, Zartbitterschokolade",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:16:54.323966+00:00
+3,Eldorado,{'url': 'https://www.rastshop.ch/de/kaffee/eldorado'},"Kaffee-Mischung
+Indien, Guatemala, Brasilien, Costa Rica","Süssholz, Geranie, frische Erde",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:16:54.425748+00:00
+4,Premium,{'url': 'https://www.rastshop.ch/de/kaffee/premium'},"Kaffee-Mischung
+Indonesien, Guatemala, Brasilien, Indien","Mandeln, Brotkruste",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:16:54.430885+00:00
+5,Latino No 2,{'url': 'https://www.rastshop.ch/de/kaffee/latino-no-2'},"Kaffee-Mischung
+Brasilien, PNG, Guatemala, Costa Rica, Kolumbien","Malz, Aprikose, Pflaume, Zwetschge, Mandeln",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:16:54.435501+00:00
+6,Festival,{'url': 'https://www.rastshop.ch/de/kaffee/festival'},"Kaffee-Mischung
+Kenia, Guatemala, Brasilien, Costa Rica","dunkle Beeren, Schokolade, Akazienhonig",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:16:54.440086+00:00
+7,Barista Crème,{'url': 'https://www.rastshop.ch/de/kaffee/barista-creme'},"Kaffee-Mischung
+Kenia, Costa Rica, Indonesien, PNG, Guatemala","Schokolade, Akazienhonig, Beeren, Vanille, Brot",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:16:54.444384+00:00
+8,Latino No 5,{'url': 'https://www.rastshop.ch/de/kaffee/latino-no-5'},"Kaffee-Mischung
+Kolumbien, Jamaika, Costa R., Guatemala, Brasilien",nussig,250 g à CHF 9.00,1 kg à CHF 33.90,2022-12-08 14:16:54.448726+00:00
+9,Fairtrade Crème,{'url': 'https://www.rastshop.ch/de/kaffee/fairtrade-creme'},"Kaffee-Mischung
+Brasilien, Peru, Honduras","dunkle Schokolade, Haselnuss, Karamell",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:16:54.504757+00:00
+10,Bio Crème,{'url': 'https://www.rastshop.ch/de/kaffee/bio-creme'},"Kaffee-Mischung
+Peru, Äthiopien, Indonesien","Waldbeere, schwarze Kirsche",250 g à CHF 7.80,1 kg à CHF 28.90,2022-12-08 14:16:54.512085+00:00
+11,Rainforest Crème,{'url': 'https://www.rastshop.ch/de/kaffee/rainforest-creme'},"Kaffee-Mischung
+Guatemala, Brasilien, Costa Rica","Baumnuss, Schokolade, herb",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:16:54.516892+00:00
+12,Jubiläums-Edition,{'url': 'https://www.rastshop.ch/de/kaffee/jubilaums-edition'},"Kaffee-Mischung
+Brasilien, PNG, Guatemala, Costa Rica, Kolumbien","Aprikose, Zwetschge, Mandeln",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:16:54.521815+00:00
+13,Home-Office,{'url': 'https://www.rastshop.ch/de/kaffee/home-office'},"Kaffee-Mischung
+Kolumbien, Äthiopien, Brasilien","Haselnuss, getrocknete Aprikose",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:16:54.526140+00:00
+14,Milano,{'url': 'https://www.rastshop.ch/de/kaffee/milano'},"Espresso-Mischung
+Guatemala, Brasilien, Costa Rica, Indonesien","würzig, dunkle Schokolade",250 g à CHF 6.30,1 kg à CHF 22.90,2022-12-08 14:16:54.530441+00:00
+15,Roma,{'url': 'https://www.rastshop.ch/de/kaffee/roma'},"Espresso-Mischung
+Indonesien, Brasilien, Kolumbien","würzig, angenehme Röstaromen",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:16:54.534817+00:00
+16,Sicilia,{'url': 'https://www.rastshop.ch/de/kaffee/sicilia'},"Espresso-Mischung
+Indonesien, Kolumbien, Brasilien","nussig, Bittermandel",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:16:54.539553+00:00
+17,Venezia,{'url': 'https://www.rastshop.ch/de/kaffee/venezia'},"Espresso-Mischung
+Indonesien, Äthiopien, Costa Rica, Brasilien","süsse, rote Beeren",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:16:54.543945+00:00
+18,Vesuvio,{'url': 'https://www.rastshop.ch/de/kaffee/vesuvio'},"Espresso-Mischung
+Indonesien, Guatemala, Kolumbien, Burundi","würzig, leichte Rauchnote",250 g à CHF 6.60,1 kg à CHF 24.40,2022-12-08 14:16:54.548421+00:00
+19,Barista Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/barista-espresso'},"Espresso-Mischung
+Guatemala, Kenia, Indonesien, Indien, Brasilien","Mandel, Zitrusnote",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:16:54.552857+00:00
+20,Tropical Rainforest,{'url': 'https://www.rastshop.ch/de/kaffee/tropical-rainforest'},"Espresso-Mischung
+Mexiko, Brasilien, Tansania","Süssholz, Karamell, gebrannte Mandeln",250 g à CHF 6.30,1 kg à CHF 22.90,2022-12-08 14:16:54.557487+00:00
+21,Fairtrade Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/fairtrade-espresso'},"Espresso-Mischung
+Brasilien, Peru, Honduras, Tansania","Haselnuss, leicht erdig, zartbitter, Süssholz",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:16:54.561792+00:00
+22,Bio Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/bio-espresso'},"Espresso-Mischung
+Guatemala, Indonesien",dunkle Nussschokolade,250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.566367+00:00
+23,Rainforest Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/rainforest-espresso'},"Espresso-Mischung
+Brasilien, Guatemala, Costa Rica, Indien","Bittermandel, dunkle Schokolade",250 g à CHF 6.30,1 kg à CHF 22.90,2022-12-08 14:16:54.571200+00:00
+24,La Pastora Tarrazu,{'url': 'https://www.rastshop.ch/de/kaffee/la-pastora-tarrazu'},"Einzelsorte
+Costa Rica","Lemon, Aprikose, schokoladig",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.575674+00:00
+25,Serrano Lavado,{'url': 'https://www.rastshop.ch/de/kaffee/serrano-lavado'},"Einzelsorte
+Kuba","Walnuss, dunkle Schokolade",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.590321+00:00
+26,Antigua,{'url': 'https://www.rastshop.ch/de/kaffee/antigua-la-ceiba'},"Einzelsorte
+Guatemala","Haselnuss, Bitterschokolade",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.595942+00:00
+27,Herminio Bio,{'url': 'https://www.rastshop.ch/de/kaffee/herminio-bio'},"Einzelsorte
+Guatemala","Zitrus, Früchtetee, Nussschokolade",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.629035+00:00
+28,Blue Mountain,{'url': 'https://www.rastshop.ch/de/kaffee/blue-mountain-wallenford-estate'},"Einzelsorte
+Jamaika","Erdnuss, Haselnuss, Karamell, Schokolade",250 g à CHF 39.50,1 kg à CHF 156.00,2022-12-08 14:16:54.637063+00:00
+29,Iglesia,{'url': 'https://www.rastshop.ch/de/kaffee/iglesia-finca-hamburgo'},"Einzelsorte
+Mexiko","Limette, Assam-Tee, Mandel, Walnuss",250 g à CHF 11.80,1 kg à CHF 44.90,2022-12-08 14:16:54.642125+00:00
+30,Xochiltepec,{'url': 'https://www.rastshop.ch/de/kaffee/xochiltepec'},"Einzelsorte
+Mexiko","Mandel, Schokolade, rote Beeren",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.646617+00:00
+31,Comsa Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/comsa-fairtrade'},"Einzelsorte
+Honduras","Orange, Tabak, Baumnuss",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:16:54.651265+00:00
+32,Geisha natural,{'url': 'https://www.rastshop.ch/de/kaffee/geisha-natural'},"Einzelsorte
+Panama","Pflaume, Mango, Ananas",250 g à CHF 36.50,1 kg à CHF 144.00,2022-12-08 14:16:54.656264+00:00
+33,Geisha washed,{'url': 'https://www.rastshop.ch/de/kaffee/geisha-washed'},"Einzelsorte
+Panama","Bergamotte, Jasmin, Honig, Apfel",250 g à CHF 36.50,1 kg à CHF 144.00,2022-12-08 14:16:54.660818+00:00
+34,Bahareque Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/bahareque-fairtrade'},"Einzelsorte
+Kolumbien","nussig, Schokolade, Pfirsich",250 g à CHF 7.30,1 kg à CHF 26.90,2022-12-08 14:16:54.665812+00:00
+35,Vista Alegre,{'url': 'https://www.rastshop.ch/de/kaffee/fazenda-vista-alegre'},"Einzelsorte
+Brasilien","Steinobst, Haselnuss, Honig",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:16:54.675110+00:00
+36,Apas Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/apas-fairtrade'},"Einzelsorte
+Brasilien","Muskat, Bitterschokolade, süsslich",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:16:54.683515+00:00
+37,Taioba,{'url': 'https://www.rastshop.ch/de/kaffee/taioba-fazenda-agua-limpa'},"Einzelsorte
+Brasilien","Bitterschokolade, Lebkuchen, Karamell, Kandis",250 g à CHF 9.80,1 kg à CHF 36.90,2022-12-08 14:16:54.688691+00:00
+38,Yellow Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/yellow-bourbon-fazenda-samambaia'},"Einzelsorte
+Brasilien","Honig, Baumnuss",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.693351+00:00
+39,El Palto BIO Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/el-palto-bio-fairtrade'},"Einzelsorte
+Peru","Schokolade, Bittermandel",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.698074+00:00
+40,Vilcabamba,{'url': 'https://www.rastshop.ch/de/kaffee/vilcabamba'},"Einzelsorte
+Ecuador",dunkle Schokolade,250 g à CHF 8.50,1 kg à CHF 31.90,2022-12-08 14:16:54.702815+00:00
+41,Pink Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/pink-bourbon'},"Einzelsorte
+Kolumbien","Baumnuss, Lakritze",250 g à CHF 10.30,1 kg à CHF 38.90,2022-12-08 14:16:54.707680+00:00
+42,Guji BIO,{'url': 'https://www.rastshop.ch/de/kaffee/guji'},"Einzelsorte
+Äthiopien","Orange, leichte Schokoladennote",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:16:54.712250+00:00
+43,Yirga Cheffe BIO,{'url': 'https://www.rastshop.ch/de/kaffee/yirga-cheffe-bio'},"Einzelsorte
+Äthiopien","Limettenzeste, Pfirsich, Lakritze",250 g à CHF 8.50,1 kg à CHF 31.90,2022-12-08 14:16:54.717004+00:00
+44,Limu,{'url': 'https://www.rastshop.ch/de/kaffee/limu'},"Einzelsorte
+Äthiopien","Aprikose, tropische Früchte, Schwarztee",250 g à CHF 7.80,1 kg à CHF 28.90,2022-12-08 14:16:54.722213+00:00
+45,Nyeri,{'url': 'https://www.rastshop.ch/de/kaffee/nyeri-kenia'},"Einzelsorte
+Kenia","Grapefruit, Cassis",250 g à CHF 8.80,1 kg à CHF 32.90,2022-12-08 14:16:54.726860+00:00
+46,Bukoba Bio Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/bukoba-bio-fairtrade'},"Einzelsorte
+Tansania","würzig, dunkle Schokolade",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:16:54.731749+00:00
+47,Laurina Pointu de Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/laurina-pointu-de-bourbon'},"Einzelsorte
+La Réunion","Litschi, Gewürze, Kakao",250 g à CHF 122.00,1 kg à CHF 486.00,2022-12-08 14:16:54.759818+00:00
+48,Butihinda,{'url': 'https://www.rastshop.ch/de/kaffee/butihinda'},"Einzelsorte
+Burundi","Schwarztee, Pfirsich",250 g à CHF 9.30,1 kg à CHF 34.90,2022-12-08 14:16:54.768211+00:00
+49,Somaho,{'url': 'https://www.rastshop.ch/de/kaffee/somaho'},"Einzelsorte
+Rwanda","Mango, Pfirsich, leicht blumig",250 g à CHF 10.30,1 kg à CHF 38.90,2022-12-08 14:16:54.773289+00:00
+50,Java Baron,{'url': 'https://www.rastshop.ch/de/kaffee/java-baron'},"Einzelsorte
+Indonesien","Kakao, Walnuss, leichte Tabaknoten",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:16:54.778068+00:00
+51,"Mandheling, Gold",{'url': 'https://www.rastshop.ch/de/kaffee/mandheling-gold'},"Einzelsorte
+Indonesien","würzig, leicht fruchtig",250 g à CHF 7.30,1 kg à CHF 26.90,2022-12-08 14:16:54.783065+00:00
+52,Malabar,{'url': 'https://www.rastshop.ch/de/kaffee/malabar-monsooned-aspinwall'},"Einzelsorte
+Indien","nussig, mild, Gewürze",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:16:54.788353+00:00
+53,Plantation RFA,{'url': 'https://www.rastshop.ch/de/kaffee/plantation-rfa'},"Einzelsorte
+Indien","würzig, Schokolade, leicht Pflaume",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:16:54.793124+00:00
+54,Kerkeicoondah,{'url': 'https://www.rastshop.ch/de/kaffee/kerkeicoondah-balehonnur-farm'},"Einzelsorte
+Indien","nussig, würzig, schokoladig",250 g à CHF 9.30,1 kg à CHF 34.90,2022-12-08 14:16:54.797933+00:00
+55,Ponya,{'url': 'https://www.rastshop.ch/de/kaffee/ponya-palthope-estate'},"Einzelsorte
+Indien","reife Erdbeeren, Mascarpone",250 g à CHF 10.30,1 kg à CHF 38.90,2022-12-08 14:16:54.803094+00:00
+56,Chin Litäi,{'url': 'https://www.rastshop.ch/de/kaffee/chin-litai'},"Einzelsorte
+Myanmar","Beeren, Orange",250 g à CHF 9.30,1 kg à CHF 34.90,2022-12-08 14:16:54.808253+00:00
+57,Sigri,{'url': 'https://www.rastshop.ch/de/kaffee/sigri-estate-plantation'},"Einzelsorte
+Papua-Neuguinea","nussig, leicht fruchtig",250 g à CHF 7.30,1 kg à CHF 26.90,2022-12-08 14:16:54.813077+00:00
+58,Dornröschen,{'url': 'https://www.rastshop.ch/de/kaffee/dornroschen'},"Koffeinfreie Mischung
+Brasilien","dunkle Schokolade, getrocknete Aprikosen",250 g à CHF 7.30,1 kg à CHF 26.90,2022-12-08 14:16:54.818069+00:00
+59,Koffeinfrei Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/koffeinfrei-fairtrade'},"Koffeinfreie Mischung
+Peru",Schokolade,250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:16:54.829383+00:00

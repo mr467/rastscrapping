@@ -1,6 +1,106 @@
-,name,url,typ_origin,taste,price_250g,price_1000g,label,roastlevel,chartjs
-0,Mocca,{'url': 'https://www.rastshop.ch/de/kaffee/mocca'},"Kaffee-Mischung
-Indonesien, Brasilien, Costa Rica",Schwarzbrot,250 g à CHF 6.30,1 kg à CHF 22.90,[''],['right: 45%;'],"
+,name,url,typ_origin,taste,price_250g,price_1000g,timestamp,label,roastlevel,chartjs
+0,Tavola Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/tavola-espresso'},"Espresso-Mischung
+Brasilien, Costa Rica, Guatemala, Indien","Kakao, geröstete Haselnuss",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:14:04.527325+00:00,[''],['right: 38.75%;'],"
+        // ============================================================
+        // taste chart js
+        (function() {
+            // cart data
+            var chartdata =  [3,3,1,2,4,3,2,4,4,2];
+            // data
+            var data = {
+                labels: ["""", """", """", """", """", """", """", """", """", """"],
+                datasets: [{
+                    data: chartdata,
+                    borderWidth: 0,
+                    borderColor: ""transparent"",
+                }]
+            };
+            // options
+            var options = {
+                aspectRatio: 1,
+                animation: false,
+                scale: {
+                    angleLines: {
+                        display: false,
+                    },
+                    gridLines:{
+                        display: true,
+                        color: ""#BBB4A4""
+                    },
+                    ticks: {
+                        display: false,
+                        suggestedMin: -1,
+                        suggestedMax: 5
+                    },
+                    pointLabels: {
+                        fontColor: ""#1b1717"",
+                        fontSize: 12
+                    },
+                },
+                elements:{
+                    line: {
+                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
+                    },
+                    point: {
+                        radius: 5,
+                        hoverRadius: 5,
+                        backgroundColor: ""#000000"",
+                        hoverBackgroundColor: ""#C76A15"",
+                    }
+                },
+                tooltips:{
+                    titleMarginBottom: 0,
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return tooltipItem[0].value;
+                        },
+                        label: function(tooltipItem, data) {
+                            return """";
+                        }
+                    },
+                },
+                legend: {
+                    display: false,
+                },
+                dragData: true,
+                dragX: false,
+                dragDataRound: 0,
+                dragOptions: {
+                    showTooltip: true
+                },
+                onDrag: function (e, datasetIndex, index, value) {
+                    if(value < 0){
+                        e.preventDefault();
+                        return false;
+                    }
+                },
+                onDragEnd: function (e, datasetIndex, index, value) {
+                    // on drag end
+                }
+                , animationSteps: 300
+                , scaleFontSize: 16
+                , pointLabelFontSize: 14
+                , tooltipFontSize: 12
+                , tooltipTitleFontSize: 12
+                , pointDotRadius: 1
+                , pointLabelFontFamily: ""proxima-nova""
+            };
+            // create chart
+            var ctx = $(""[data-taste-chart]"");
+            if (ctx.length > 0) {
+                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
+                    options.dragData = false;
+                }
+                var radarChart = new Chart(ctx, {
+                    type: ""radar"",
+                    data: data,
+                    options: options
+                });
+            }
+        })();
+    "
+1,Mocca,{'url': 'https://www.rastshop.ch/de/kaffee/mocca'},"Kaffee-Mischung
+Indonesien, Brasilien, Costa Rica",Schwarzbrot,250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:14:04.608042+00:00,[''],['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -99,8 +199,8 @@ Indonesien, Brasilien, Costa Rica",Schwarzbrot,250 g à CHF 6.30,1 kg à CHF 22.
             }
         })();
     "
-1,Visconti,{'url': 'https://www.rastshop.ch/de/kaffee/visconti'},"Kaffee-Mischung
-Brasilien, Kolumbien, Indonesien, Costa Rica",dunkle Schokolade,250 g à CHF 6.30,1 kg à CHF 22.90,[''],['right: 42.5%;'],"
+2,Visconti,{'url': 'https://www.rastshop.ch/de/kaffee/visconti'},"Kaffee-Mischung
+Brasilien, Kolumbien, Indonesien, Costa Rica",dunkle Schokolade,250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:14:04.628878+00:00,[''],['right: 42.5%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -199,8 +299,8 @@ Brasilien, Kolumbien, Indonesien, Costa Rica",dunkle Schokolade,250 g à CHF 6.3
             }
         })();
     "
-2,Wiener,{'url': 'https://www.rastshop.ch/de/kaffee/wiener'},"Kaffee-Mischung
-Guatemala, Indonesien, Costa Rica, Brasilien","Toast, Zartbitterschokolade",250 g à CHF 6.50,1 kg à CHF 23.90,[''],['right: 41.25%;'],"
+3,Wiener,{'url': 'https://www.rastshop.ch/de/kaffee/wiener'},"Kaffee-Mischung
+Guatemala, Indonesien, Costa Rica, Brasilien","Toast, Zartbitterschokolade",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:14:04.634901+00:00,[''],['right: 41.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -299,8 +399,8 @@ Guatemala, Indonesien, Costa Rica, Brasilien","Toast, Zartbitterschokolade",250 
             }
         })();
     "
-3,Eldorado,{'url': 'https://www.rastshop.ch/de/kaffee/eldorado'},"Kaffee-Mischung
-Indien, Guatemala, Brasilien, Costa Rica","Süssholz, Geranie, frische Erde",250 g à CHF 6.50,1 kg à CHF 23.90,[''],['right: 48.75%;'],"
+4,Eldorado,{'url': 'https://www.rastshop.ch/de/kaffee/eldorado'},"Kaffee-Mischung
+Indien, Guatemala, Brasilien, Costa Rica","Süssholz, Geranie, frische Erde",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:14:04.639729+00:00,[''],['right: 48.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -399,8 +499,8 @@ Indien, Guatemala, Brasilien, Costa Rica","Süssholz, Geranie, frische Erde",250
             }
         })();
     "
-4,Premium,{'url': 'https://www.rastshop.ch/de/kaffee/premium'},"Kaffee-Mischung
-Indonesien, Guatemala, Brasilien, Indien","Mandeln, Brotkruste",250 g à CHF 6.50,1 kg à CHF 23.90,[''],['right: 48.75%;'],"
+5,Premium,{'url': 'https://www.rastshop.ch/de/kaffee/premium'},"Kaffee-Mischung
+Indonesien, Guatemala, Brasilien, Indien","Mandeln, Brotkruste",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:14:04.644149+00:00,[''],['right: 48.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -499,8 +599,8 @@ Indonesien, Guatemala, Brasilien, Indien","Mandeln, Brotkruste",250 g à CHF 6.5
             }
         })();
     "
-5,Latino No 2,{'url': 'https://www.rastshop.ch/de/kaffee/latino-no-2'},"Kaffee-Mischung
-Brasilien, PNG, Guatemala, Costa Rica, Kolumbien","Malz, Aprikose, Pflaume, Zwetschge, Mandeln",250 g à CHF 6.80,1 kg à CHF 24.90,[''],['right: 45%;'],"
+6,Latino No 2,{'url': 'https://www.rastshop.ch/de/kaffee/latino-no-2'},"Kaffee-Mischung
+Brasilien, PNG, Guatemala, Costa Rica, Kolumbien","Malz, Aprikose, Pflaume, Zwetschge, Mandeln",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:14:04.649971+00:00,[''],['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -599,8 +699,8 @@ Brasilien, PNG, Guatemala, Costa Rica, Kolumbien","Malz, Aprikose, Pflaume, Zwet
             }
         })();
     "
-6,Festival,{'url': 'https://www.rastshop.ch/de/kaffee/festival'},"Kaffee-Mischung
-Kenia, Guatemala, Brasilien, Costa Rica","dunkle Beeren, Schokolade, Akazienhonig",250 g à CHF 7.00,1 kg à CHF 25.90,[''],['right: 45%;'],"
+7,Festival,{'url': 'https://www.rastshop.ch/de/kaffee/festival'},"Kaffee-Mischung
+Kenia, Guatemala, Brasilien, Costa Rica","dunkle Beeren, Schokolade, Akazienhonig",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:04.654459+00:00,[''],['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -699,8 +799,8 @@ Kenia, Guatemala, Brasilien, Costa Rica","dunkle Beeren, Schokolade, Akazienhoni
             }
         })();
     "
-7,Barista Crème,{'url': 'https://www.rastshop.ch/de/kaffee/barista-creme'},"Kaffee-Mischung
-Kenia, Costa Rica, Indonesien, PNG, Guatemala","Schokolade, Akazienhonig, Beeren, Vanille, Brot",250 g à CHF 6.80,1 kg à CHF 24.90,[''],['right: 42.5%;'],"
+8,Barista Crème,{'url': 'https://www.rastshop.ch/de/kaffee/barista-creme'},"Kaffee-Mischung
+Kenia, Costa Rica, Indonesien, PNG, Guatemala","Schokolade, Akazienhonig, Beeren, Vanille, Brot",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:04.659093+00:00,[''],['right: 42.5%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -799,8 +899,8 @@ Kenia, Costa Rica, Indonesien, PNG, Guatemala","Schokolade, Akazienhonig, Beeren
             }
         })();
     "
-8,Latino No 5,{'url': 'https://www.rastshop.ch/de/kaffee/latino-no-5'},"Kaffee-Mischung
-Kolumbien, Jamaika, Costa R., Guatemala, Brasilien",nussig,250 g à CHF 9.00,1 kg à CHF 33.90,[''],['right: 45%;'],"
+9,Latino No 5,{'url': 'https://www.rastshop.ch/de/kaffee/latino-no-5'},"Kaffee-Mischung
+Kolumbien, Jamaika, Costa R., Guatemala, Brasilien",nussig,250 g à CHF 9.00,1 kg à CHF 33.90,2022-12-08 14:14:04.736561+00:00,[''],['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -899,8 +999,8 @@ Kolumbien, Jamaika, Costa R., Guatemala, Brasilien",nussig,250 g à CHF 9.00,1 k
             }
         })();
     "
-9,Fairtrade Crème,{'url': 'https://www.rastshop.ch/de/kaffee/fairtrade-creme'},"Kaffee-Mischung
-Brasilien, Peru, Honduras","dunkle Schokolade, Haselnuss, Karamell",250 g à CHF 6.80,1 kg à CHF 24.90,"['Label Fairtrade', '']",['right: 45%;'],"
+10,Fairtrade Crème,{'url': 'https://www.rastshop.ch/de/kaffee/fairtrade-creme'},"Kaffee-Mischung
+Brasilien, Peru, Honduras","dunkle Schokolade, Haselnuss, Karamell",250 g à CHF 7.30,1 kg à CHF 26.90,2022-12-08 14:14:04.822518+00:00,"['Label Fairtrade', '']",['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -999,8 +1099,8 @@ Brasilien, Peru, Honduras","dunkle Schokolade, Haselnuss, Karamell",250 g à CHF
             }
         })();
     "
-10,Bio Crème,{'url': 'https://www.rastshop.ch/de/kaffee/bio-creme'},"Kaffee-Mischung
-Peru, Äthiopien, Indonesien","Waldbeere, schwarze Kirsche",250 g à CHF 7.80,1 kg à CHF 28.90,"['Label Bio', '']",['right: 43.75%;'],"
+11,Bio Crème,{'url': 'https://www.rastshop.ch/de/kaffee/bio-creme'},"Kaffee-Mischung
+Peru, Äthiopien, Indonesien","Waldbeere, schwarze Kirsche",250 g à CHF 7.80,1 kg à CHF 28.90,2022-12-08 14:14:04.828457+00:00,"['Label Bio', '']",['right: 43.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1099,8 +1199,8 @@ Peru, Äthiopien, Indonesien","Waldbeere, schwarze Kirsche",250 g à CHF 7.80,1 
             }
         })();
     "
-11,Rainforest Crème,{'url': 'https://www.rastshop.ch/de/kaffee/rainforest-creme'},"Kaffee-Mischung
-Guatemala, Brasilien, Costa Rica","Baumnuss, Schokolade, herb",250 g à CHF 6.80,1 kg à CHF 24.90,"['Label Rainforest', '']",['right: 50%;'],"
+12,Rainforest Crème,{'url': 'https://www.rastshop.ch/de/kaffee/rainforest-creme'},"Kaffee-Mischung
+Guatemala, Brasilien, Costa Rica","Baumnuss, Schokolade, herb",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:14:04.833706+00:00,"['Label Rainforest', '']",['right: 50%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1199,8 +1299,108 @@ Guatemala, Brasilien, Costa Rica","Baumnuss, Schokolade, herb",250 g à CHF 6.80
             }
         })();
     "
-12,Jubiläums-Edition,{'url': 'https://www.rastshop.ch/de/kaffee/jubilaums-edition'},"Kaffee-Mischung
-Brasilien, PNG, Guatemala, Costa Rica, Kolumbien","Aprikose, Zwetschge, Mandeln",250 g à CHF 7.00,1 kg à CHF 25.90,[''],['right: 45%;'],"
+13,Christmas Edition,{'url': 'https://www.rastshop.ch/de/kaffee/christmas-edition'},"Kaffee-Mischung
+Brasilien, Indien, Indonesien, Kenia","Datteln, Orange, leicht Nelke",250 g à CHF 8.80,1 kg à CHF 32.90,2022-12-08 14:14:04.838483+00:00,[''],[],"
+        // ============================================================
+        // taste chart js
+        (function() {
+            // cart data
+            var chartdata =  [3,2,1,3,5,3,2,3,3,3];
+            // data
+            var data = {
+                labels: ["""", """", """", """", """", """", """", """", """", """"],
+                datasets: [{
+                    data: chartdata,
+                    borderWidth: 0,
+                    borderColor: ""transparent"",
+                }]
+            };
+            // options
+            var options = {
+                aspectRatio: 1,
+                animation: false,
+                scale: {
+                    angleLines: {
+                        display: false,
+                    },
+                    gridLines:{
+                        display: true,
+                        color: ""#BBB4A4""
+                    },
+                    ticks: {
+                        display: false,
+                        suggestedMin: -1,
+                        suggestedMax: 5
+                    },
+                    pointLabels: {
+                        fontColor: ""#1b1717"",
+                        fontSize: 12
+                    },
+                },
+                elements:{
+                    line: {
+                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
+                    },
+                    point: {
+                        radius: 5,
+                        hoverRadius: 5,
+                        backgroundColor: ""#000000"",
+                        hoverBackgroundColor: ""#C76A15"",
+                    }
+                },
+                tooltips:{
+                    titleMarginBottom: 0,
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return tooltipItem[0].value;
+                        },
+                        label: function(tooltipItem, data) {
+                            return """";
+                        }
+                    },
+                },
+                legend: {
+                    display: false,
+                },
+                dragData: true,
+                dragX: false,
+                dragDataRound: 0,
+                dragOptions: {
+                    showTooltip: true
+                },
+                onDrag: function (e, datasetIndex, index, value) {
+                    if(value < 0){
+                        e.preventDefault();
+                        return false;
+                    }
+                },
+                onDragEnd: function (e, datasetIndex, index, value) {
+                    // on drag end
+                }
+                , animationSteps: 300
+                , scaleFontSize: 16
+                , pointLabelFontSize: 14
+                , tooltipFontSize: 12
+                , tooltipTitleFontSize: 12
+                , pointDotRadius: 1
+                , pointLabelFontFamily: ""proxima-nova""
+            };
+            // create chart
+            var ctx = $(""[data-taste-chart]"");
+            if (ctx.length > 0) {
+                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
+                    options.dragData = false;
+                }
+                var radarChart = new Chart(ctx, {
+                    type: ""radar"",
+                    data: data,
+                    options: options
+                });
+            }
+        })();
+    "
+14,Jubiläums-Edition,{'url': 'https://www.rastshop.ch/de/kaffee/jubilaums-edition'},"Kaffee-Mischung
+Brasilien, PNG, Guatemala, Costa Rica, Kolumbien","Aprikose, Zwetschge, Mandeln",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:04.842830+00:00,[''],['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1299,8 +1499,108 @@ Brasilien, PNG, Guatemala, Costa Rica, Kolumbien","Aprikose, Zwetschge, Mandeln"
             }
         })();
     "
-13,Home-Office,{'url': 'https://www.rastshop.ch/de/kaffee/home-office'},"Kaffee-Mischung
-Kolumbien, Äthiopien, Brasilien","Haselnuss, getrocknete Aprikose",250 g à CHF 7.00,1 kg à CHF 25.90,[''],['right: 51.25%;'],"
+15,Tavola Crème,{'url': 'https://www.rastshop.ch/de/kaffee/tavola-creme'},"Kaffee-Mischung
+Brasilien, Costa Rica, Guatemala, Indien","dunkle Schokolade, Walnuss",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:14:04.847485+00:00,[''],['right: 43.75%;'],"
+        // ============================================================
+        // taste chart js
+        (function() {
+            // cart data
+            var chartdata =  [4,2,0,1,3,3,2,3,3,1];
+            // data
+            var data = {
+                labels: ["""", """", """", """", """", """", """", """", """", """"],
+                datasets: [{
+                    data: chartdata,
+                    borderWidth: 0,
+                    borderColor: ""transparent"",
+                }]
+            };
+            // options
+            var options = {
+                aspectRatio: 1,
+                animation: false,
+                scale: {
+                    angleLines: {
+                        display: false,
+                    },
+                    gridLines:{
+                        display: true,
+                        color: ""#BBB4A4""
+                    },
+                    ticks: {
+                        display: false,
+                        suggestedMin: -1,
+                        suggestedMax: 5
+                    },
+                    pointLabels: {
+                        fontColor: ""#1b1717"",
+                        fontSize: 12
+                    },
+                },
+                elements:{
+                    line: {
+                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
+                    },
+                    point: {
+                        radius: 5,
+                        hoverRadius: 5,
+                        backgroundColor: ""#000000"",
+                        hoverBackgroundColor: ""#C76A15"",
+                    }
+                },
+                tooltips:{
+                    titleMarginBottom: 0,
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return tooltipItem[0].value;
+                        },
+                        label: function(tooltipItem, data) {
+                            return """";
+                        }
+                    },
+                },
+                legend: {
+                    display: false,
+                },
+                dragData: true,
+                dragX: false,
+                dragDataRound: 0,
+                dragOptions: {
+                    showTooltip: true
+                },
+                onDrag: function (e, datasetIndex, index, value) {
+                    if(value < 0){
+                        e.preventDefault();
+                        return false;
+                    }
+                },
+                onDragEnd: function (e, datasetIndex, index, value) {
+                    // on drag end
+                }
+                , animationSteps: 300
+                , scaleFontSize: 16
+                , pointLabelFontSize: 14
+                , tooltipFontSize: 12
+                , tooltipTitleFontSize: 12
+                , pointDotRadius: 1
+                , pointLabelFontFamily: ""proxima-nova""
+            };
+            // create chart
+            var ctx = $(""[data-taste-chart]"");
+            if (ctx.length > 0) {
+                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
+                    options.dragData = false;
+                }
+                var radarChart = new Chart(ctx, {
+                    type: ""radar"",
+                    data: data,
+                    options: options
+                });
+            }
+        })();
+    "
+16,Home-Office,{'url': 'https://www.rastshop.ch/de/kaffee/home-office'},"Kaffee-Mischung
+Kolumbien, Äthiopien, Brasilien","Haselnuss, getrocknete Aprikose",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:04.852144+00:00,[''],['right: 51.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1399,8 +1699,8 @@ Kolumbien, Äthiopien, Brasilien","Haselnuss, getrocknete Aprikose",250 g à CHF
             }
         })();
     "
-14,Milano,{'url': 'https://www.rastshop.ch/de/kaffee/milano'},"Espresso-Mischung
-Guatemala, Brasilien, Costa Rica, Indonesien","würzig, dunkle Schokolade",250 g à CHF 6.30,1 kg à CHF 22.90,[''],['right: 38.75%;'],"
+17,Milano,{'url': 'https://www.rastshop.ch/de/kaffee/milano'},"Espresso-Mischung
+Guatemala, Brasilien, Costa Rica, Indonesien","dunkle Schokolade, würzig",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:14:04.856570+00:00,[''],['right: 38.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1499,8 +1799,8 @@ Guatemala, Brasilien, Costa Rica, Indonesien","würzig, dunkle Schokolade",250 g
             }
         })();
     "
-15,Roma,{'url': 'https://www.rastshop.ch/de/kaffee/roma'},"Espresso-Mischung
-Indonesien, Brasilien, Kolumbien","würzig, angenehme Röstaromen",250 g à CHF 6.50,1 kg à CHF 23.90,[''],['right: 26.25%;'],"
+18,Roma,{'url': 'https://www.rastshop.ch/de/kaffee/roma'},"Espresso-Mischung
+Indonesien, Brasilien, Kolumbien","würzig, angenehme Röstaromen",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:14:04.860866+00:00,[''],['right: 26.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1599,8 +1899,8 @@ Indonesien, Brasilien, Kolumbien","würzig, angenehme Röstaromen",250 g à CHF 
             }
         })();
     "
-16,Sicilia,{'url': 'https://www.rastshop.ch/de/kaffee/sicilia'},"Espresso-Mischung
-Indonesien, Kolumbien, Brasilien","nussig, Bittermandel",250 g à CHF 6.50,1 kg à CHF 23.90,[''],['right: 11.25%;'],"
+19,Sicilia,{'url': 'https://www.rastshop.ch/de/kaffee/sicilia'},"Espresso-Mischung
+Indonesien, Kolumbien, Brasilien","nussig, Bittermandel",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:14:04.865950+00:00,[''],['right: 11.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1699,8 +1999,8 @@ Indonesien, Kolumbien, Brasilien","nussig, Bittermandel",250 g à CHF 6.50,1 kg 
             }
         })();
     "
-17,Venezia,{'url': 'https://www.rastshop.ch/de/kaffee/venezia'},"Espresso-Mischung
-Indonesien, Äthiopien, Costa Rica, Brasilien","süsse, rote Beeren",250 g à CHF 6.50,1 kg à CHF 23.90,[''],['right: 36.25%;'],"
+20,Venezia,{'url': 'https://www.rastshop.ch/de/kaffee/venezia'},"Espresso-Mischung
+Indonesien, Äthiopien, Costa Rica, Brasilien","süsse, rote Beeren",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:14:04.870369+00:00,[''],['right: 36.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1799,8 +2099,8 @@ Indonesien, Äthiopien, Costa Rica, Brasilien","süsse, rote Beeren",250 g à CH
             }
         })();
     "
-18,Vesuvio,{'url': 'https://www.rastshop.ch/de/kaffee/vesuvio'},"Espresso-Mischung
-Indonesien, Guatemala, Kolumbien, Burundi","würzig, leichte Rauchnote",250 g à CHF 6.60,1 kg à CHF 24.40,[''],['right: 26.25%;'],"
+21,Vesuvio,{'url': 'https://www.rastshop.ch/de/kaffee/vesuvio'},"Espresso-Mischung
+Indonesien, Guatemala, Kolumbien, Burundi","würzig, leichte Rauchnote",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:14:04.874688+00:00,[''],['right: 26.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1899,8 +2199,8 @@ Indonesien, Guatemala, Kolumbien, Burundi","würzig, leichte Rauchnote",250 g à
             }
         })();
     "
-19,Barista Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/barista-espresso'},"Espresso-Mischung
-Guatemala, Kenia, Indonesien, Indien, Brasilien","Mandel, Zitrusnote",250 g à CHF 6.80,1 kg à CHF 24.90,[''],['right: 41.25%;'],"
+22,Barista Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/barista-espresso'},"Espresso-Mischung
+Guatemala, Kenia, Indonesien, Indien, Brasilien","Mandel, Zitrusnote",250 g à CHF 7.00,1 kg à CHF 25.90,2022-12-08 14:14:04.878977+00:00,[''],['right: 41.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -1999,8 +2299,8 @@ Guatemala, Kenia, Indonesien, Indien, Brasilien","Mandel, Zitrusnote",250 g à C
             }
         })();
     "
-20,Tropical Rainforest,{'url': 'https://www.rastshop.ch/de/kaffee/tropical-rainforest'},"Espresso-Mischung
-Mexiko, Brasilien, Tansania","Süssholz, Karamell, gebrannte Mandeln",250 g à CHF 6.30,1 kg à CHF 22.90,[''],['right: 33.75%;'],"
+23,Tropical Rainforest,{'url': 'https://www.rastshop.ch/de/kaffee/tropical-rainforest'},"Espresso-Mischung
+Mexiko, Brasilien, Tansania","Süssholz, Karamell, gebrannte Mandeln",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:14:04.883697+00:00,[''],['right: 33.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -2099,8 +2399,8 @@ Mexiko, Brasilien, Tansania","Süssholz, Karamell, gebrannte Mandeln",250 g à C
             }
         })();
     "
-21,Fairtrade Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/fairtrade-espresso'},"Espresso-Mischung
-Brasilien, Peru, Honduras, Tansania","Haselnuss, leicht erdig, zartbitter, Süssholz",250 g à CHF 6.80,1 kg à CHF 24.90,"['Label Fairtrade', '']",['right: 38.75%;'],"
+24,Fairtrade Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/fairtrade-espresso'},"Espresso-Mischung
+Brasilien, Peru, Honduras, Tansania","Haselnuss, Süssholz, dunkle Schokolade",250 g à CHF 6.80,1 kg à CHF 24.90,2022-12-08 14:14:04.888054+00:00,"['Label Fairtrade', '']",['right: 38.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -2199,8 +2499,8 @@ Brasilien, Peru, Honduras, Tansania","Haselnuss, leicht erdig, zartbitter, Süss
             }
         })();
     "
-22,Bio Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/bio-espresso'},"Espresso-Mischung
-Guatemala, Indonesien",dunkle Nussschokolade,250 g à CHF 7.50,1 kg à CHF 27.90,"['Label Bio', '']",['right: 36.25%;'],"
+25,Bio Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/bio-espresso'},"Espresso-Mischung
+Guatemala, Indonesien",dunkle Nussschokolade,250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:04.902760+00:00,"['Label Bio', '']",['right: 36.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -2299,8 +2599,8 @@ Guatemala, Indonesien",dunkle Nussschokolade,250 g à CHF 7.50,1 kg à CHF 27.90
             }
         })();
     "
-23,Rainforest Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/rainforest-espresso'},"Espresso-Mischung
-Brasilien, Guatemala, Costa Rica, Indien","Bittermandel, dunkle Schokolade",250 g à CHF 6.30,1 kg à CHF 22.90,"['Label Rainforest', '']",['right: 43.75%;'],"
+26,Rainforest Espresso,{'url': 'https://www.rastshop.ch/de/kaffee/rainforest-espresso'},"Espresso-Mischung
+Brasilien, Guatemala, Costa Rica, Indien","Bittermandel, dunkle Schokolade",250 g à CHF 6.50,1 kg à CHF 23.90,2022-12-08 14:14:04.908319+00:00,"['Label Rainforest', '']",['right: 43.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -2399,13 +2699,13 @@ Brasilien, Guatemala, Costa Rica, Indien","Bittermandel, dunkle Schokolade",250 
             }
         })();
     "
-24,La Pastora Tarrazu,{'url': 'https://www.rastshop.ch/de/kaffee/la-pastora-tarrazu'},"Einzelsorte
-Costa Rica","Lemon, Aprikose, schokoladig",250 g à CHF 7.50,1 kg à CHF 27.90,[],[],"
+27,Palmichal,{'url': 'https://www.rastshop.ch/de/kaffee/palmichal'},"Einzelsorte
+Costa Rica","Asam, Lakritz, Pfirsich",250 g à CHF 8.30,1 kg à CHF 30.90,2022-12-08 14:14:04.952871+00:00,[''],['right: 50%;'],"
         // ============================================================
         // taste chart js
         (function() {
             // cart data
-            var chartdata =  [2,4,0,2,3,4,4,4,4,2];
+            var chartdata =  [5,1,1,4,2,2,1,4,3,3];
             // data
             var data = {
                 labels: ["""", """", """", """", """", """", """", """", """", """"],
@@ -2499,108 +2799,8 @@ Costa Rica","Lemon, Aprikose, schokoladig",250 g à CHF 7.50,1 kg à CHF 27.90,[
             }
         })();
     "
-25,Serrano Lavado,{'url': 'https://www.rastshop.ch/de/kaffee/serrano-lavado'},"Einzelsorte
-Kuba","Walnuss, dunkle Schokolade",250 g à CHF 7.50,1 kg à CHF 27.90,[''],['right: 47.5%;'],"
-        // ============================================================
-        // taste chart js
-        (function() {
-            // cart data
-            var chartdata =  [1,3,1,1,3,3,2,2,4,1];
-            // data
-            var data = {
-                labels: ["""", """", """", """", """", """", """", """", """", """"],
-                datasets: [{
-                    data: chartdata,
-                    borderWidth: 0,
-                    borderColor: ""transparent"",
-                }]
-            };
-            // options
-            var options = {
-                aspectRatio: 1,
-                animation: false,
-                scale: {
-                    angleLines: {
-                        display: false,
-                    },
-                    gridLines:{
-                        display: true,
-                        color: ""#BBB4A4""
-                    },
-                    ticks: {
-                        display: false,
-                        suggestedMin: -1,
-                        suggestedMax: 5
-                    },
-                    pointLabels: {
-                        fontColor: ""#1b1717"",
-                        fontSize: 12
-                    },
-                },
-                elements:{
-                    line: {
-                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
-                    },
-                    point: {
-                        radius: 5,
-                        hoverRadius: 5,
-                        backgroundColor: ""#000000"",
-                        hoverBackgroundColor: ""#C76A15"",
-                    }
-                },
-                tooltips:{
-                    titleMarginBottom: 0,
-                    callbacks: {
-                        title: function(tooltipItem, data) {
-                            return tooltipItem[0].value;
-                        },
-                        label: function(tooltipItem, data) {
-                            return """";
-                        }
-                    },
-                },
-                legend: {
-                    display: false,
-                },
-                dragData: true,
-                dragX: false,
-                dragDataRound: 0,
-                dragOptions: {
-                    showTooltip: true
-                },
-                onDrag: function (e, datasetIndex, index, value) {
-                    if(value < 0){
-                        e.preventDefault();
-                        return false;
-                    }
-                },
-                onDragEnd: function (e, datasetIndex, index, value) {
-                    // on drag end
-                }
-                , animationSteps: 300
-                , scaleFontSize: 16
-                , pointLabelFontSize: 14
-                , tooltipFontSize: 12
-                , tooltipTitleFontSize: 12
-                , pointDotRadius: 1
-                , pointLabelFontFamily: ""proxima-nova""
-            };
-            // create chart
-            var ctx = $(""[data-taste-chart]"");
-            if (ctx.length > 0) {
-                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
-                    options.dragData = false;
-                }
-                var radarChart = new Chart(ctx, {
-                    type: ""radar"",
-                    data: data,
-                    options: options
-                });
-            }
-        })();
-    "
-26,Antigua,{'url': 'https://www.rastshop.ch/de/kaffee/antigua-la-ceiba'},"Einzelsorte
-Guatemala","Haselnuss, Bitterschokolade",250 g à CHF 7.50,1 kg à CHF 27.90,[],[],"
+28,Serrano Lavado,{'url': 'https://www.rastshop.ch/de/kaffee/serrano-lavado'},"Einzelsorte
+Kuba","Walnuss, dunkle Schokolade",250 g à CHF 8.30,1 kg à CHF 30.90,2022-12-08 14:14:04.960532+00:00,[''],['right: 47.5%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -2699,8 +2899,8 @@ Guatemala","Haselnuss, Bitterschokolade",250 g à CHF 7.50,1 kg à CHF 27.90,[],
             }
         })();
     "
-27,Herminio Bio,{'url': 'https://www.rastshop.ch/de/kaffee/herminio-bio'},"Einzelsorte
-Guatemala","Zitrus, Früchtetee, Nussschokolade",250 g à CHF 7.50,1 kg à CHF 27.90,"['Label Bio', '']",['right: 61.25%;'],"
+29,Herminio Bio,{'url': 'https://www.rastshop.ch/de/kaffee/herminio-bio'},"Einzelsorte
+Guatemala","Zitrus, Früchtetee, Nussschokolade",250 g à CHF 8.30,1 kg à CHF 30.90,2022-12-08 14:14:04.965674+00:00,"['Label Bio', '']",['right: 61.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -2799,13 +2999,13 @@ Guatemala","Zitrus, Früchtetee, Nussschokolade",250 g à CHF 7.50,1 kg à CHF 2
             }
         })();
     "
-28,Blue Mountain,{'url': 'https://www.rastshop.ch/de/kaffee/blue-mountain-wallenford-estate'},"Einzelsorte
-Jamaika","Erdnuss, Haselnuss, Karamell, Schokolade",250 g à CHF 39.50,1 kg à CHF 156.00,[],[],"
+30,Buena Vista,{'url': 'https://www.rastshop.ch/de/kaffee/buena-vista'},"Einzelsorte
+Guatemala","Baumnuss, leichte Johannisbeere",250 g à CHF 8.80,1 kg à CHF 32.90,2022-12-08 14:14:04.970166+00:00,[''],['right: 43.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
             // cart data
-            var chartdata =  [4,0,1,4,4,1,1,4,4,4];
+            var chartdata =  [5,2,2,3,4,2,0,3,4,3];
             // data
             var data = {
                 labels: ["""", """", """", """", """", """", """", """", """", """"],
@@ -2899,13 +3099,13 @@ Jamaika","Erdnuss, Haselnuss, Karamell, Schokolade",250 g à CHF 39.50,1 kg à C
             }
         })();
     "
-29,Iglesia,{'url': 'https://www.rastshop.ch/de/kaffee/iglesia-finca-hamburgo'},"Einzelsorte
-Mexiko","Limette, Assam-Tee, Mandel, Walnuss",250 g à CHF 11.80,1 kg à CHF 44.90,"['Label Parzellenkaffee', '']",['right: 56.25%;'],"
+31,Blue Mountain,{'url': 'https://www.rastshop.ch/de/kaffee/blue-mountain'},"Einzelsorte
+Jamaika","Erdnuss, Haselnuss, Karamell, Schokolade",250 g à CHF 39.50,1 kg à CHF 156.00,2022-12-08 14:14:04.974584+00:00,[''],['right: 46.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
             // cart data
-            var chartdata =  [2,2,0,2,2,5,2,3,4,2];
+            var chartdata =  [3,0,1,4,3,0,0,3,4,3];
             // data
             var data = {
                 labels: ["""", """", """", """", """", """", """", """", """", """"],
@@ -2999,108 +3199,8 @@ Mexiko","Limette, Assam-Tee, Mandel, Walnuss",250 g à CHF 11.80,1 kg à CHF 44.
             }
         })();
     "
-30,Xochiltepec,{'url': 'https://www.rastshop.ch/de/kaffee/xochiltepec'},"Einzelsorte
-Mexiko","Mandel, Schokolade, rote Beeren",250 g à CHF 7.50,1 kg à CHF 27.90,[],[],"
-        // ============================================================
-        // taste chart js
-        (function() {
-            // cart data
-            var chartdata =  [2,2,0,2,2,5,2,3,4,2];
-            // data
-            var data = {
-                labels: ["""", """", """", """", """", """", """", """", """", """"],
-                datasets: [{
-                    data: chartdata,
-                    borderWidth: 0,
-                    borderColor: ""transparent"",
-                }]
-            };
-            // options
-            var options = {
-                aspectRatio: 1,
-                animation: false,
-                scale: {
-                    angleLines: {
-                        display: false,
-                    },
-                    gridLines:{
-                        display: true,
-                        color: ""#BBB4A4""
-                    },
-                    ticks: {
-                        display: false,
-                        suggestedMin: -1,
-                        suggestedMax: 5
-                    },
-                    pointLabels: {
-                        fontColor: ""#1b1717"",
-                        fontSize: 12
-                    },
-                },
-                elements:{
-                    line: {
-                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
-                    },
-                    point: {
-                        radius: 5,
-                        hoverRadius: 5,
-                        backgroundColor: ""#000000"",
-                        hoverBackgroundColor: ""#C76A15"",
-                    }
-                },
-                tooltips:{
-                    titleMarginBottom: 0,
-                    callbacks: {
-                        title: function(tooltipItem, data) {
-                            return tooltipItem[0].value;
-                        },
-                        label: function(tooltipItem, data) {
-                            return """";
-                        }
-                    },
-                },
-                legend: {
-                    display: false,
-                },
-                dragData: true,
-                dragX: false,
-                dragDataRound: 0,
-                dragOptions: {
-                    showTooltip: true
-                },
-                onDrag: function (e, datasetIndex, index, value) {
-                    if(value < 0){
-                        e.preventDefault();
-                        return false;
-                    }
-                },
-                onDragEnd: function (e, datasetIndex, index, value) {
-                    // on drag end
-                }
-                , animationSteps: 300
-                , scaleFontSize: 16
-                , pointLabelFontSize: 14
-                , tooltipFontSize: 12
-                , tooltipTitleFontSize: 12
-                , pointDotRadius: 1
-                , pointLabelFontFamily: ""proxima-nova""
-            };
-            // create chart
-            var ctx = $(""[data-taste-chart]"");
-            if (ctx.length > 0) {
-                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
-                    options.dragData = false;
-                }
-                var radarChart = new Chart(ctx, {
-                    type: ""radar"",
-                    data: data,
-                    options: options
-                });
-            }
-        })();
-    "
-31,Comsa Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/comsa-fairtrade'},"Einzelsorte
-Honduras","Orange, Tabak, Baumnuss",250 g à CHF 7.00,1 kg à CHF 25.90,[],[],"
+32,Iglesia,{'url': 'https://www.rastshop.ch/de/kaffee/iglesia-finca-hamburgo'},"Einzelsorte
+Mexiko","Limette, Assam-Tee, Mandel, Walnuss",250 g à CHF 11.80,1 kg à CHF 44.90,2022-12-08 14:14:04.978974+00:00,"['Label Parzellenkaffee', '']",['right: 56.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -3199,13 +3299,13 @@ Honduras","Orange, Tabak, Baumnuss",250 g à CHF 7.00,1 kg à CHF 25.90,[],[],"
             }
         })();
     "
-32,Geisha natural,{'url': 'https://www.rastshop.ch/de/kaffee/geisha-natural'},"Einzelsorte
-Panama","Pflaume, Mango, Ananas",250 g à CHF 36.50,1 kg à CHF 144.00,[],[],"
+33,Berilo Bio,{'url': 'https://www.rastshop.ch/de/kaffee/berilo-bio'},"Einzelsorte
+Mexiko","getrocknete Aprikose, Kakao und Mandel",250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:04.983744+00:00,"['Label Bio', '']",['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
             // cart data
-            var chartdata =  [2,2,0,2,2,5,2,3,4,2];
+            var chartdata =  [5,1,0,3,3,2,1,4,3,3];
             // data
             var data = {
                 labels: ["""", """", """", """", """", """", """", """", """", """"],
@@ -3299,13 +3399,13 @@ Panama","Pflaume, Mango, Ananas",250 g à CHF 36.50,1 kg à CHF 144.00,[],[],"
             }
         })();
     "
-33,Geisha washed,{'url': 'https://www.rastshop.ch/de/kaffee/geisha-washed'},"Einzelsorte
-Panama","Bergamotte, Jasmin, Honig, Apfel",250 g à CHF 36.50,1 kg à CHF 144.00,[],[],"
+34,Comsa Bio Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/comsa-bio-fairtrade'},"Einzelsorte
+Honduras","Orange, Tabak, Baumnuss",250 g à CHF 8.30,1 kg à CHF 30.90,2022-12-08 14:14:04.988493+00:00,"['Label Bio', 'Label Direct Trade', 'Label Fairtrade', '']",['right: 50%;'],"
         // ============================================================
         // taste chart js
         (function() {
             // cart data
-            var chartdata =  [2,2,0,2,2,5,2,3,4,2];
+            var chartdata =  [4,2,2,4,4,2,2,3,2,4];
             // data
             var data = {
                 labels: ["""", """", """", """", """", """", """", """", """", """"],
@@ -3399,8 +3499,308 @@ Panama","Bergamotte, Jasmin, Honig, Apfel",250 g à CHF 36.50,1 kg à CHF 144.00
             }
         })();
     "
-34,Bahareque Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/bahareque-fairtrade'},"Einzelsorte
-Kolumbien","nussig, Schokolade, Pfirsich",250 g à CHF 7.30,1 kg à CHF 26.90,"['Label Direct Trade', 'Label Fairtrade', '']",['right: 50%;'],"
+35,Gesha natural,{'url': 'https://www.rastshop.ch/de/kaffee/gesha-natural'},"Einzelsorte
+Panama","Pflaume, Mango, Ananas",250 g à CHF 39.50,1 kg à CHF 156.00,2022-12-08 14:14:05.000621+00:00,[''],['right: 62.5%;'],"
+        // ============================================================
+        // taste chart js
+        (function() {
+            // cart data
+            var chartdata =  [5,0,4,5,0,0,0,5,5,3];
+            // data
+            var data = {
+                labels: ["""", """", """", """", """", """", """", """", """", """"],
+                datasets: [{
+                    data: chartdata,
+                    borderWidth: 0,
+                    borderColor: ""transparent"",
+                }]
+            };
+            // options
+            var options = {
+                aspectRatio: 1,
+                animation: false,
+                scale: {
+                    angleLines: {
+                        display: false,
+                    },
+                    gridLines:{
+                        display: true,
+                        color: ""#BBB4A4""
+                    },
+                    ticks: {
+                        display: false,
+                        suggestedMin: -1,
+                        suggestedMax: 5
+                    },
+                    pointLabels: {
+                        fontColor: ""#1b1717"",
+                        fontSize: 12
+                    },
+                },
+                elements:{
+                    line: {
+                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
+                    },
+                    point: {
+                        radius: 5,
+                        hoverRadius: 5,
+                        backgroundColor: ""#000000"",
+                        hoverBackgroundColor: ""#C76A15"",
+                    }
+                },
+                tooltips:{
+                    titleMarginBottom: 0,
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return tooltipItem[0].value;
+                        },
+                        label: function(tooltipItem, data) {
+                            return """";
+                        }
+                    },
+                },
+                legend: {
+                    display: false,
+                },
+                dragData: true,
+                dragX: false,
+                dragDataRound: 0,
+                dragOptions: {
+                    showTooltip: true
+                },
+                onDrag: function (e, datasetIndex, index, value) {
+                    if(value < 0){
+                        e.preventDefault();
+                        return false;
+                    }
+                },
+                onDragEnd: function (e, datasetIndex, index, value) {
+                    // on drag end
+                }
+                , animationSteps: 300
+                , scaleFontSize: 16
+                , pointLabelFontSize: 14
+                , tooltipFontSize: 12
+                , tooltipTitleFontSize: 12
+                , pointDotRadius: 1
+                , pointLabelFontFamily: ""proxima-nova""
+            };
+            // create chart
+            var ctx = $(""[data-taste-chart]"");
+            if (ctx.length > 0) {
+                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
+                    options.dragData = false;
+                }
+                var radarChart = new Chart(ctx, {
+                    type: ""radar"",
+                    data: data,
+                    options: options
+                });
+            }
+        })();
+    "
+36,Gesha washed,{'url': 'https://www.rastshop.ch/de/kaffee/gesha-washed'},"Einzelsorte
+Panama","Bergamotte, Jasmin, Honig, Apfel",250 g à CHF 39.50,1 kg à CHF 156.00,2022-12-08 14:14:05.018945+00:00,[''],['right: 62.5%;'],"
+        // ============================================================
+        // taste chart js
+        (function() {
+            // cart data
+            var chartdata =  [4,0,5,5,1,1,0,3,3,4];
+            // data
+            var data = {
+                labels: ["""", """", """", """", """", """", """", """", """", """"],
+                datasets: [{
+                    data: chartdata,
+                    borderWidth: 0,
+                    borderColor: ""transparent"",
+                }]
+            };
+            // options
+            var options = {
+                aspectRatio: 1,
+                animation: false,
+                scale: {
+                    angleLines: {
+                        display: false,
+                    },
+                    gridLines:{
+                        display: true,
+                        color: ""#BBB4A4""
+                    },
+                    ticks: {
+                        display: false,
+                        suggestedMin: -1,
+                        suggestedMax: 5
+                    },
+                    pointLabels: {
+                        fontColor: ""#1b1717"",
+                        fontSize: 12
+                    },
+                },
+                elements:{
+                    line: {
+                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
+                    },
+                    point: {
+                        radius: 5,
+                        hoverRadius: 5,
+                        backgroundColor: ""#000000"",
+                        hoverBackgroundColor: ""#C76A15"",
+                    }
+                },
+                tooltips:{
+                    titleMarginBottom: 0,
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return tooltipItem[0].value;
+                        },
+                        label: function(tooltipItem, data) {
+                            return """";
+                        }
+                    },
+                },
+                legend: {
+                    display: false,
+                },
+                dragData: true,
+                dragX: false,
+                dragDataRound: 0,
+                dragOptions: {
+                    showTooltip: true
+                },
+                onDrag: function (e, datasetIndex, index, value) {
+                    if(value < 0){
+                        e.preventDefault();
+                        return false;
+                    }
+                },
+                onDragEnd: function (e, datasetIndex, index, value) {
+                    // on drag end
+                }
+                , animationSteps: 300
+                , scaleFontSize: 16
+                , pointLabelFontSize: 14
+                , tooltipFontSize: 12
+                , tooltipTitleFontSize: 12
+                , pointDotRadius: 1
+                , pointLabelFontFamily: ""proxima-nova""
+            };
+            // create chart
+            var ctx = $(""[data-taste-chart]"");
+            if (ctx.length > 0) {
+                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
+                    options.dragData = false;
+                }
+                var radarChart = new Chart(ctx, {
+                    type: ""radar"",
+                    data: data,
+                    options: options
+                });
+            }
+        })();
+    "
+37,Bonita Springs Wush Wush,{'url': 'https://www.rastshop.ch/de/kaffee/bonita-springs-wush-wush'},"Einzelsorte
+Panama","Früchtetee, Limone, reife Ananas",250 g à CHF 22.00,1 kg à CHF 86.00,2022-12-08 14:14:05.024730+00:00,[''],[],"
+        // ============================================================
+        // taste chart js
+        (function() {
+            // cart data
+            var chartdata =  [5,0,2,5,0,0,0,3,3,4];
+            // data
+            var data = {
+                labels: ["""", """", """", """", """", """", """", """", """", """"],
+                datasets: [{
+                    data: chartdata,
+                    borderWidth: 0,
+                    borderColor: ""transparent"",
+                }]
+            };
+            // options
+            var options = {
+                aspectRatio: 1,
+                animation: false,
+                scale: {
+                    angleLines: {
+                        display: false,
+                    },
+                    gridLines:{
+                        display: true,
+                        color: ""#BBB4A4""
+                    },
+                    ticks: {
+                        display: false,
+                        suggestedMin: -1,
+                        suggestedMax: 5
+                    },
+                    pointLabels: {
+                        fontColor: ""#1b1717"",
+                        fontSize: 12
+                    },
+                },
+                elements:{
+                    line: {
+                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
+                    },
+                    point: {
+                        radius: 5,
+                        hoverRadius: 5,
+                        backgroundColor: ""#000000"",
+                        hoverBackgroundColor: ""#C76A15"",
+                    }
+                },
+                tooltips:{
+                    titleMarginBottom: 0,
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return tooltipItem[0].value;
+                        },
+                        label: function(tooltipItem, data) {
+                            return """";
+                        }
+                    },
+                },
+                legend: {
+                    display: false,
+                },
+                dragData: true,
+                dragX: false,
+                dragDataRound: 0,
+                dragOptions: {
+                    showTooltip: true
+                },
+                onDrag: function (e, datasetIndex, index, value) {
+                    if(value < 0){
+                        e.preventDefault();
+                        return false;
+                    }
+                },
+                onDragEnd: function (e, datasetIndex, index, value) {
+                    // on drag end
+                }
+                , animationSteps: 300
+                , scaleFontSize: 16
+                , pointLabelFontSize: 14
+                , tooltipFontSize: 12
+                , tooltipTitleFontSize: 12
+                , pointDotRadius: 1
+                , pointLabelFontFamily: ""proxima-nova""
+            };
+            // create chart
+            var ctx = $(""[data-taste-chart]"");
+            if (ctx.length > 0) {
+                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
+                    options.dragData = false;
+                }
+                var radarChart = new Chart(ctx, {
+                    type: ""radar"",
+                    data: data,
+                    options: options
+                });
+            }
+        })();
+    "
+38,Bahareque Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/bahareque-fairtrade'},"Einzelsorte
+Kolumbien","nussig, Schokolade, Pfirsich",250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:05.029279+00:00,"['Label Direct Trade', 'Label Fairtrade', '']",['right: 50%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -3499,8 +3899,8 @@ Kolumbien","nussig, Schokolade, Pfirsich",250 g à CHF 7.30,1 kg à CHF 26.90,"[
             }
         })();
     "
-35,Vista Alegre,{'url': 'https://www.rastshop.ch/de/kaffee/fazenda-vista-alegre'},"Einzelsorte
-Brasilien","Steinobst, Haselnuss, Honig",250 g à CHF 7.00,1 kg à CHF 25.90,"['Label Direct Trade', '']",['right: 41.25%;'],"
+39,Vista Alegre,{'url': 'https://www.rastshop.ch/de/kaffee/fazenda-vista-alegre'},"Einzelsorte
+Brasilien","Steinobst, Haselnuss, Honig",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:05.034153+00:00,"['Label Direct Trade', '']",['right: 41.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -3599,8 +3999,8 @@ Brasilien","Steinobst, Haselnuss, Honig",250 g à CHF 7.00,1 kg à CHF 25.90,"['
             }
         })();
     "
-36,Apas Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/apas-fairtrade'},"Einzelsorte
-Brasilien","Muskat, Bitterschokolade, süsslich",250 g à CHF 7.00,1 kg à CHF 25.90,"['Label Direct Trade', 'Label Fairtrade', '']",['right: 45%;'],"
+40,Apas Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/apas-fairtrade'},"Einzelsorte
+Brasilien","Muskat, Bitterschokolade, süsslich",250 g à CHF 7.80,1 kg à CHF 28.90,2022-12-08 14:14:05.038675+00:00,"['Label Direct Trade', 'Label Fairtrade', '']",['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -3699,13 +4099,13 @@ Brasilien","Muskat, Bitterschokolade, süsslich",250 g à CHF 7.00,1 kg à CHF 2
             }
         })();
     "
-37,Taioba,{'url': 'https://www.rastshop.ch/de/kaffee/taioba-fazenda-agua-limpa'},"Einzelsorte
-Brasilien","Bitterschokolade, Lebkuchen, Karamell, Kandis",250 g à CHF 9.80,1 kg à CHF 36.90,[],[],"
+41,Taioba,{'url': 'https://www.rastshop.ch/de/kaffee/taioba'},"Einzelsorte
+Brasilien","Bitterschokolade, Lebkuchen, Karamell, Kandis",250 g à CHF 9.80,1 kg à CHF 36.90,2022-12-08 14:14:05.043137+00:00,"['Label Parzellenkaffee', '']",['right: 47.5%;'],"
         // ============================================================
         // taste chart js
         (function() {
             // cart data
-            var chartdata =  [4,2,3,0,2,4,3,3,4,2];
+            var chartdata =  [5,0,4,5,2,0,1,5,4,3];
             // data
             var data = {
                 labels: ["""", """", """", """", """", """", """", """", """", """"],
@@ -3799,8 +4199,8 @@ Brasilien","Bitterschokolade, Lebkuchen, Karamell, Kandis",250 g à CHF 9.80,1 k
             }
         })();
     "
-38,Yellow Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/yellow-bourbon-fazenda-samambaia'},"Einzelsorte
-Brasilien","Honig, Baumnuss",250 g à CHF 7.50,1 kg à CHF 27.90,"['Label Direct Trade', '']",['right: 51.25%;'],"
+42,Yellow Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/yellow-bourbon-fazenda-samambaia'},"Einzelsorte
+Brasilien","Honig, Baumnuss",250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:05.048259+00:00,"['Label Direct Trade', '']",['right: 51.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -3899,8 +4299,8 @@ Brasilien","Honig, Baumnuss",250 g à CHF 7.50,1 kg à CHF 27.90,"['Label Direct
             }
         })();
     "
-39,El Palto BIO Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/el-palto-bio-fairtrade'},"Einzelsorte
-Peru","Schokolade, Bittermandel",250 g à CHF 7.50,1 kg à CHF 27.90,"['Label Bio', 'Label Direct Trade', 'Label Fairtrade', '']",['right: 50%;'],"
+43,El Palto BIO Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/el-palto-bio-fairtrade'},"Einzelsorte
+Peru","Schokolade, Bittermandel",250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:05.053053+00:00,"['Label Bio', 'Label Direct Trade', 'Label Fairtrade', '']",['right: 50%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -3999,8 +4399,8 @@ Peru","Schokolade, Bittermandel",250 g à CHF 7.50,1 kg à CHF 27.90,"['Label Bi
             }
         })();
     "
-40,Vilcabamba,{'url': 'https://www.rastshop.ch/de/kaffee/vilcabamba'},"Einzelsorte
-Ecuador",dunkle Schokolade,250 g à CHF 8.50,1 kg à CHF 31.90,[''],['right: 50%;'],"
+44,Vilcabamba,{'url': 'https://www.rastshop.ch/de/kaffee/vilcabamba'},"Einzelsorte
+Ecuador",dunkle Schokolade,250 g à CHF 9.30,1 kg à CHF 34.90,2022-12-08 14:14:05.057882+00:00,[''],['right: 50%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4099,8 +4499,8 @@ Ecuador",dunkle Schokolade,250 g à CHF 8.50,1 kg à CHF 31.90,[''],['right: 50%
             }
         })();
     "
-41,Pink Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/pink-bourbon'},"Einzelsorte
-Kolumbien","Baumnuss, Lakritze",250 g à CHF 10.30,1 kg à CHF 38.90,[''],['right: 46.25%;'],"
+45,Pink Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/pink-bourbon'},"Einzelsorte
+Kolumbien","Baumnuss, Lakritze",250 g à CHF 10.30,1 kg à CHF 38.90,2022-12-08 14:14:05.062451+00:00,[''],['right: 46.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4199,8 +4599,8 @@ Kolumbien","Baumnuss, Lakritze",250 g à CHF 10.30,1 kg à CHF 38.90,[''],['righ
             }
         })();
     "
-42,Guji BIO,{'url': 'https://www.rastshop.ch/de/kaffee/guji'},"Einzelsorte
-Äthiopien","Orange, leichte Schokoladennote",250 g à CHF 7.00,1 kg à CHF 25.90,"['Label Bio', '']",['right: 68.75%;'],"
+46,Guji BIO,{'url': 'https://www.rastshop.ch/de/kaffee/guji'},"Einzelsorte
+Äthiopien","Orange, leichte Schokoladennote",250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:05.067499+00:00,"['Label Bio', '']",['right: 68.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4299,8 +4699,8 @@ Kolumbien","Baumnuss, Lakritze",250 g à CHF 10.30,1 kg à CHF 38.90,[''],['righ
             }
         })();
     "
-43,Yirga Cheffe BIO,{'url': 'https://www.rastshop.ch/de/kaffee/yirga-cheffe-bio'},"Einzelsorte
-Äthiopien","Limettenzeste, Pfirsich, Lakritze",250 g à CHF 8.50,1 kg à CHF 31.90,"['Label Bio', '']",['right: 68.75%;'],"
+47,Yirga Cheffe BIO,{'url': 'https://www.rastshop.ch/de/kaffee/yirga-cheffe-bio'},"Einzelsorte
+Äthiopien","Limettenzeste, Pfirsich, Lakritze",250 g à CHF 9.30,1 kg à CHF 34.90,2022-12-08 14:14:05.123466+00:00,"['Label Bio', '']",['right: 68.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4399,8 +4799,8 @@ Kolumbien","Baumnuss, Lakritze",250 g à CHF 10.30,1 kg à CHF 38.90,[''],['righ
             }
         })();
     "
-44,Limu,{'url': 'https://www.rastshop.ch/de/kaffee/limu'},"Einzelsorte
-Äthiopien","Aprikose, tropische Früchte, Schwarztee",250 g à CHF 7.80,1 kg à CHF 28.90,[''],['right: 81.25%;'],"
+48,Limu,{'url': 'https://www.rastshop.ch/de/kaffee/limu'},"Einzelsorte
+Äthiopien","Aprikose, tropische Früchte, Schwarztee",250 g à CHF 7.80,1 kg à CHF 28.90,2022-12-08 14:14:05.131957+00:00,[''],['right: 81.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4499,8 +4899,8 @@ Kolumbien","Baumnuss, Lakritze",250 g à CHF 10.30,1 kg à CHF 38.90,[''],['righ
             }
         })();
     "
-45,Nyeri,{'url': 'https://www.rastshop.ch/de/kaffee/nyeri-kenia'},"Einzelsorte
-Kenia","Grapefruit, Cassis",250 g à CHF 8.80,1 kg à CHF 32.90,[''],['right: 53.75%;'],"
+49,Nyeri,{'url': 'https://www.rastshop.ch/de/kaffee/nyeri-kenia'},"Einzelsorte
+Kenia","Grapefruit, Cassis",250 g à CHF 9.50,1 kg à CHF 35.90,2022-12-08 14:14:05.136858+00:00,[''],['right: 53.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4599,8 +4999,8 @@ Kenia","Grapefruit, Cassis",250 g à CHF 8.80,1 kg à CHF 32.90,[''],['right: 53
             }
         })();
     "
-46,Bukoba Bio Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/bukoba-bio-fairtrade'},"Einzelsorte
-Tansania","würzig, dunkle Schokolade",250 g à CHF 6.80,1 kg à CHF 24.90,"['Label Bio', 'Label Fairtrade', '']",['right: 50%;'],"
+50,Bukoba Bio Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/bukoba-bio-fairtrade'},"Einzelsorte
+Tansania","würzig, dunkle Schokolade",250 g à CHF 7.30,1 kg à CHF 26.90,2022-12-08 14:14:05.141483+00:00,"['Label Bio', 'Label Fairtrade', '']",['right: 50%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4699,8 +5099,8 @@ Tansania","würzig, dunkle Schokolade",250 g à CHF 6.80,1 kg à CHF 24.90,"['La
             }
         })();
     "
-47,Laurina Pointu de Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/laurina-pointu-de-bourbon'},"Einzelsorte
-La Réunion","Litschi, Gewürze, Kakao",250 g à CHF 122.00,1 kg à CHF 486.00,[''],['right: 62.5%;'],"
+51,Laurina Pointu de Bourbon,{'url': 'https://www.rastshop.ch/de/kaffee/laurina-pointu-de-bourbon'},"Einzelsorte
+La Réunion","Litschi, Gewürze, Kakao",250 g à CHF 122.00,1 kg à CHF 486.00,2022-12-08 14:14:05.146097+00:00,[''],['right: 62.5%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4799,8 +5199,8 @@ La Réunion","Litschi, Gewürze, Kakao",250 g à CHF 122.00,1 kg à CHF 486.00,[
             }
         })();
     "
-48,Butihinda,{'url': 'https://www.rastshop.ch/de/kaffee/butihinda'},"Einzelsorte
-Burundi","Schwarztee, Pfirsich",250 g à CHF 9.30,1 kg à CHF 34.90,[''],['right: 68.75%;'],"
+52,Butihinda,{'url': 'https://www.rastshop.ch/de/kaffee/butihinda'},"Einzelsorte
+Burundi","Schwarztee, Pfirsich",250 g à CHF 9.30,1 kg à CHF 34.90,2022-12-08 14:14:05.151402+00:00,[''],['right: 68.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4899,8 +5299,8 @@ Burundi","Schwarztee, Pfirsich",250 g à CHF 9.30,1 kg à CHF 34.90,[''],['right
             }
         })();
     "
-49,Somaho,{'url': 'https://www.rastshop.ch/de/kaffee/somaho'},"Einzelsorte
-Rwanda","Mango, Pfirsich, leicht blumig",250 g à CHF 10.30,1 kg à CHF 38.90,[''],['right: 81.25%;'],"
+53,Somaho,{'url': 'https://www.rastshop.ch/de/kaffee/somaho'},"Einzelsorte
+Rwanda","Mango, Pfirsich, leicht blumig",250 g à CHF 10.30,1 kg à CHF 38.90,2022-12-08 14:14:05.156192+00:00,[''],['right: 81.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -4999,8 +5399,8 @@ Rwanda","Mango, Pfirsich, leicht blumig",250 g à CHF 10.30,1 kg à CHF 38.90,['
             }
         })();
     "
-50,Java Baron,{'url': 'https://www.rastshop.ch/de/kaffee/java-baron'},"Einzelsorte
-Indonesien","Kakao, Walnuss, leichte Tabaknoten",250 g à CHF 6.50,1 kg à CHF 23.90,[''],['right: 50%;'],"
+54,Java Baron,{'url': 'https://www.rastshop.ch/de/kaffee/java-baron'},"Einzelsorte
+Indonesien","Kakao, Walnuss, leichte Tabaknoten",250 g à CHF 7.30,1 kg à CHF 26.90,2022-12-08 14:14:05.160745+00:00,[''],['right: 50%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -5099,8 +5499,8 @@ Indonesien","Kakao, Walnuss, leichte Tabaknoten",250 g à CHF 6.50,1 kg à CHF 2
             }
         })();
     "
-51,"Mandheling, Gold",{'url': 'https://www.rastshop.ch/de/kaffee/mandheling-gold'},"Einzelsorte
-Indonesien","würzig, leicht fruchtig",250 g à CHF 7.30,1 kg à CHF 26.90,[''],['right: 45%;'],"
+55,"Mandheling, Gold",{'url': 'https://www.rastshop.ch/de/kaffee/mandheling-gold'},"Einzelsorte
+Indonesien","würzig, leicht fruchtig",250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:05.166268+00:00,[''],['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -5199,8 +5599,8 @@ Indonesien","würzig, leicht fruchtig",250 g à CHF 7.30,1 kg à CHF 26.90,[''],
             }
         })();
     "
-52,Malabar,{'url': 'https://www.rastshop.ch/de/kaffee/malabar-monsooned-aspinwall'},"Einzelsorte
-Indien","nussig, mild, Gewürze",250 g à CHF 6.80,1 kg à CHF 24.90,[''],['right: 62.5%;'],"
+56,Malabar,{'url': 'https://www.rastshop.ch/de/kaffee/malabar-monsooned-aspinwall'},"Einzelsorte
+Indien","nussig, mild, Gewürze",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:05.170998+00:00,[''],['right: 62.5%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -5299,8 +5699,8 @@ Indien","nussig, mild, Gewürze",250 g à CHF 6.80,1 kg à CHF 24.90,[''],['righ
             }
         })();
     "
-53,Plantation RFA,{'url': 'https://www.rastshop.ch/de/kaffee/plantation-rfa'},"Einzelsorte
-Indien","würzig, Schokolade, leicht Pflaume",250 g à CHF 7.00,1 kg à CHF 25.90,"['Label Rainforest', '']",['right: 43.75%;'],"
+57,Plantation RFA,{'url': 'https://www.rastshop.ch/de/kaffee/plantation-rfa'},"Einzelsorte
+Indien","würzig, Schokolade, leicht Pflaume",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:05.175770+00:00,"['Label Rainforest', '']",['right: 43.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -5399,8 +5799,8 @@ Indien","würzig, Schokolade, leicht Pflaume",250 g à CHF 7.00,1 kg à CHF 25.9
             }
         })();
     "
-54,Kerkeicoondah,{'url': 'https://www.rastshop.ch/de/kaffee/kerkeicoondah-balehonnur-farm'},"Einzelsorte
-Indien","nussig, würzig, schokoladig",250 g à CHF 9.30,1 kg à CHF 34.90,"['Label Direct Trade', 'Label Parzellenkaffee', '']",['right: 76.25%;'],"
+58,Kerkeicoondah,{'url': 'https://www.rastshop.ch/de/kaffee/kerkeicoondah-balehonnur-farm'},"Einzelsorte
+Indien","nussig, würzig, schokoladig",250 g à CHF 9.30,1 kg à CHF 34.90,2022-12-08 14:14:05.180882+00:00,"['Label Direct Trade', 'Label Parzellenkaffee', '']",['right: 76.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -5499,13 +5899,13 @@ Indien","nussig, würzig, schokoladig",250 g à CHF 9.30,1 kg à CHF 34.90,"['La
             }
         })();
     "
-55,Ponya,{'url': 'https://www.rastshop.ch/de/kaffee/ponya-palthope-estate'},"Einzelsorte
-Indien","reife Erdbeeren, Mascarpone",250 g à CHF 10.30,1 kg à CHF 38.90,[],[],"
+59,Blawan,{'url': 'https://www.rastshop.ch/de/kaffee/blawan'},"Einzelsorte
+Indonesien","Schwarztee, Süssholz, Schokolade",250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:05.186012+00:00,[''],['right: 41.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
             // cart data
-            var chartdata =  [4,4,2,1,5,4,4,5,5,1];
+            var chartdata =  [5,2,0,3,1,2,1,5,5,2];
             // data
             var data = {
                 labels: ["""", """", """", """", """", """", """", """", """", """"],
@@ -5599,13 +5999,13 @@ Indien","reife Erdbeeren, Mascarpone",250 g à CHF 10.30,1 kg à CHF 38.90,[],[]
             }
         })();
     "
-56,Chin Litäi,{'url': 'https://www.rastshop.ch/de/kaffee/chin-litai'},"Einzelsorte
-Myanmar","Beeren, Orange",250 g à CHF 9.30,1 kg à CHF 34.90,[],[],"
+60,Aceh Mandheling BIO Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/aceh-mandheling-bio-fairtrade'},"Einzelsorte
+Indonesien","würzig, Schokolade, Himbeeren",250 g à CHF 8.50,1 kg à CHF 31.90,2022-12-08 14:14:05.194392+00:00,"['Label Bio', 'Label Fairtrade', '']",['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
             // cart data
-            var chartdata =  [4,4,2,1,5,4,4,5,5,1];
+            var chartdata =  [3,3,1,1,3,4,3,3,4,1];
             // data
             var data = {
                 labels: ["""", """", """", """", """", """", """", """", """", """"],
@@ -5699,8 +6099,8 @@ Myanmar","Beeren, Orange",250 g à CHF 9.30,1 kg à CHF 34.90,[],[],"
             }
         })();
     "
-57,Sigri,{'url': 'https://www.rastshop.ch/de/kaffee/sigri-estate-plantation'},"Einzelsorte
-Papua-Neuguinea","nussig, leicht fruchtig",250 g à CHF 7.30,1 kg à CHF 26.90,[''],['right: 45%;'],"
+61,Sigri,{'url': 'https://www.rastshop.ch/de/kaffee/sigri-estate-plantation'},"Einzelsorte
+Papua-Neuguinea","nussig, leicht fruchtig",250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:05.200411+00:00,[''],['right: 45%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -5799,8 +6199,108 @@ Papua-Neuguinea","nussig, leicht fruchtig",250 g à CHF 7.30,1 kg à CHF 26.90,[
             }
         })();
     "
-58,Dornröschen,{'url': 'https://www.rastshop.ch/de/kaffee/dornroschen'},"Koffeinfreie Mischung
-Brasilien","dunkle Schokolade, getrocknete Aprikosen",250 g à CHF 7.30,1 kg à CHF 26.90,[''],['right: 51.25%;'],"
+62,Captain Cook,{'url': 'https://www.rastshop.ch/de/kaffee/captain-cook'},"Einzelsorte
+Hawaii","Schokolade, getrocknete Feigen, leicht Zitrus",250 g à CHF 42.00,1 kg à CHF 166.00,2022-12-08 14:14:05.206216+00:00,[''],['right: 51.25%;'],"
+        // ============================================================
+        // taste chart js
+        (function() {
+            // cart data
+            var chartdata =  [4,0,1,5,2,1,1,4,3,4];
+            // data
+            var data = {
+                labels: ["""", """", """", """", """", """", """", """", """", """"],
+                datasets: [{
+                    data: chartdata,
+                    borderWidth: 0,
+                    borderColor: ""transparent"",
+                }]
+            };
+            // options
+            var options = {
+                aspectRatio: 1,
+                animation: false,
+                scale: {
+                    angleLines: {
+                        display: false,
+                    },
+                    gridLines:{
+                        display: true,
+                        color: ""#BBB4A4""
+                    },
+                    ticks: {
+                        display: false,
+                        suggestedMin: -1,
+                        suggestedMax: 5
+                    },
+                    pointLabels: {
+                        fontColor: ""#1b1717"",
+                        fontSize: 12
+                    },
+                },
+                elements:{
+                    line: {
+                        backgroundColor: ""rgba(185, 174, 142, 0.3)"",
+                    },
+                    point: {
+                        radius: 5,
+                        hoverRadius: 5,
+                        backgroundColor: ""#000000"",
+                        hoverBackgroundColor: ""#C76A15"",
+                    }
+                },
+                tooltips:{
+                    titleMarginBottom: 0,
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return tooltipItem[0].value;
+                        },
+                        label: function(tooltipItem, data) {
+                            return """";
+                        }
+                    },
+                },
+                legend: {
+                    display: false,
+                },
+                dragData: true,
+                dragX: false,
+                dragDataRound: 0,
+                dragOptions: {
+                    showTooltip: true
+                },
+                onDrag: function (e, datasetIndex, index, value) {
+                    if(value < 0){
+                        e.preventDefault();
+                        return false;
+                    }
+                },
+                onDragEnd: function (e, datasetIndex, index, value) {
+                    // on drag end
+                }
+                , animationSteps: 300
+                , scaleFontSize: 16
+                , pointLabelFontSize: 14
+                , tooltipFontSize: 12
+                , tooltipTitleFontSize: 12
+                , pointDotRadius: 1
+                , pointLabelFontFamily: ""proxima-nova""
+            };
+            // create chart
+            var ctx = $(""[data-taste-chart]"");
+            if (ctx.length > 0) {
+                if ($(""[data-taste-chart]"").attr(""data-taste-chart-nodrag"") === ""true"") {
+                    options.dragData = false;
+                }
+                var radarChart = new Chart(ctx, {
+                    type: ""radar"",
+                    data: data,
+                    options: options
+                });
+            }
+        })();
+    "
+63,Dornröschen,{'url': 'https://www.rastshop.ch/de/kaffee/dornroschen'},"Koffeinfreie Mischung
+Brasilien","dunkle Schokolade, getrocknete Aprikosen",250 g à CHF 7.50,1 kg à CHF 27.90,2022-12-08 14:14:05.213748+00:00,[''],['right: 51.25%;'],"
         // ============================================================
         // taste chart js
         (function() {
@@ -5899,8 +6399,8 @@ Brasilien","dunkle Schokolade, getrocknete Aprikosen",250 g à CHF 7.30,1 kg à 
             }
         })();
     "
-59,Koffeinfrei Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/koffeinfrei-fairtrade'},"Koffeinfreie Mischung
-Peru",Schokolade,250 g à CHF 7.50,1 kg à CHF 27.90,"['Label Fairtrade', '']",['right: 58.75%;'],"
+64,Koffeinfrei Fairtrade,{'url': 'https://www.rastshop.ch/de/kaffee/koffeinfrei-fairtrade'},"Koffeinfreie Mischung
+Peru",Schokolade,250 g à CHF 8.00,1 kg à CHF 29.90,2022-12-08 14:14:05.219728+00:00,"['Label Fairtrade', '']",['right: 58.75%;'],"
         // ============================================================
         // taste chart js
         (function() {
