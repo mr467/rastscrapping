@@ -19,8 +19,8 @@ def main():
     merged = merged.reindex(columns=['retailer', 'name', 'type', 'price1000', 'currency', 'taste', 'bitterness',
                      'acidity', 'roastlevel_cat', 'country1', 'country2', 'country3',
                      'url', 'timestamp',
-                            'country4', 'country5','price250', 'price_250_wayback', 'price1000_wayback',
-                     'origin_list','sweetness', 'floweriness',
+                            'country4', 'country5','label','price250', 'price_250_wayback', 'price1000_wayback',
+                     'origin_list','roastlevel', 'sweetness', 'floweriness',
                             'fruitiness', 'nutty', 'spicy', 'roasty', 'body', 'finish'])
     merged.to_csv("merged_coffee.csv")
 
