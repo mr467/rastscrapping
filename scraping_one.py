@@ -20,7 +20,7 @@ def main():
 
     # Shop URL of coffee roastery displaying all the coffees available - list is expandable and writes
     # each scraping into a new csv file. Rule the current url, has to be the first element in the list.
-    page_urls = ['https://www.rastshop.ch/de', 'https://web.archive.org/web/20220118213133/https://www.rastshop.ch/de']
+    page_urls = ['https://www.rastshop.ch/de', 'https://web.archive.org/web/20220118213133/https://www.rastshop.ch/de', 'https://web.archive.org/web/20220527174700/https://www.rastshop.ch/de']
 
     # ---------------setup finished--------
     # get URL and open browser to start scrapping - loop takes first url, uses index to name the csv output

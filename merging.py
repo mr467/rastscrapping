@@ -1,7 +1,6 @@
 
 
 def main():
-    import glob
     import pandas as pd
     import scraping_one
     import cleaning
@@ -18,7 +17,6 @@ def main():
                       wayback[['name', 'Weight250', 'price250', 'Weight1000', 'price1000']],
                       on='name',
                       how='left')
-    merged = pd.merge(rast,wayback, how="left", on="name")
     merged.to_csv("merged_coffee.csv")
 
 if __name__ == "__main__":
