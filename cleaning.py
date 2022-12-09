@@ -12,9 +12,9 @@ def main():
 
     # -----------cleaning starts-----------
 
-    # add row with source
 
-    # -----------url-----------
+
+        # -----------url-----------
         # removing unwanted {url: } part in the url column
         raw['url'] = raw['url'].str.rstrip("'}").str.lstrip("{'url': '")
         # -----------prices & weight-----------

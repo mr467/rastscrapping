@@ -2,6 +2,7 @@ def main():
     import pandas as pd
     import scraping_one
     import cleaning
+    import numpy as np
 
     # run the two scripts for scraping the data and cleaning them.
     #scraping_one.main()
@@ -22,6 +23,8 @@ def main():
                             'country4', 'country5','label','price250', 'price_250_wayback', 'price1000_wayback',
                      'origin_list','roastlevel', 'sweetness', 'floweriness',
                             'fruitiness', 'nutty', 'spicy', 'roasty', 'body', 'finish'])
+    # set index to one
+    merged.index = np.arange(1, len(merged) + 1)
     merged.to_csv("merged_coffee.csv")
 
 
