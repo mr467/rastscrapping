@@ -51,8 +51,12 @@ def main():
         raw[['country1', 'country2', 'country3', 'country4', 'country5']] = raw['origin_list'].str.split(',', expand=True)
 
         # -----------roastlevel-----------
-        # first remove part of string to get only nummeric value
+        # these infomation are only available for the current page,
+        # therefore the try-except handels missing values from the archive.org
+
         try:
+            # first remove part of string to get only nummeric value
+
             raw['roastlevel'] = raw['roastlevel'].str.rstrip("%;']").str.lstrip("['right: ")
             # adjust datatype to float
             raw['roastlevel'] = pd.to_numeric(raw['roastlevel'])
@@ -99,11 +103,18 @@ def main():
 
             # split by comma and use labels for naming
             raw[chart_labels] = raw['chart_values'].str.split(',', expand=True)
+
+            # droping non needed columns
+            raw = raw.drop(['Unnamed: 0', 'price_250g', 'price_1000g', 'chartjs', 'chart_values', 'price1000gcurrency', 'price250gcurrency'], axis=1)
+
+
             #write data in csv file
             raw.to_csv("coffee_cleaned_rast_{}.csv".format(index))
         except KeyError:
-            #if archive.org page the roastlevel, labels and chart values aren't avaible,
+            #on archive.org page the roastlevel, labels and chart values aren't avaible,
             # the wayback csv can be created instead
+            raw = raw.drop(['Unnamed: 0', 'price_250g', 'price_1000g', 'price1000gcurrency', 'price250gcurrency'], axis=1)
+
             raw.to_csv("coffee_cleaned_wayback_{}.csv".format(index))
 
 if __name__ == "__main__":

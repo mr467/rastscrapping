@@ -1,33 +1,25 @@
-import glob
 
 
 def main():
+    import glob
     import pandas as pd
-    from currency_converter import CurrencyConverter as c
+    import scraping_one
+    import cleaning
+
+    # run the two scripts for scraping the data and cleaning them.
+    #scraping_one.main()
+    cleaning.main()
 
 
-    def poundsToGrams(pounds):
-        kilograms = pounds / 2.2
-        grams = kilograms * 1000
-        return int(grams % 1000)
-
-
-    poundsToGrams(1)
-    import pandas as pd
-    # import csv files from the exports
-    files = glob.glob("coffee_cleaned_*.csv")
-    for index, item in enumerate(files):
-
-
-    # Read the first CSV file into a DataFrame
-
-    # Merge the two DataFrames based on a common column (e.g., "id")
-    # The values from df1 will be preserved
-        merged_df = pd.merge(df1, df2, on="id", how="left")
-
-    # Save the merged DataFrame to a new CSV file
-        merged_df.to_csv("merged.csv", index=False)
-
+    #
+    rast = pd.read_csv("coffee_cleaned_rast_1.csv")
+    wayback = pd.read_csv("coffee_cleaned_wayback_0.csv")
+    merged = pd.merge(rast,
+                      wayback[['name', 'Weight250', 'price250', 'Weight1000', 'price1000']],
+                      on='name',
+                      how='left')
+    merged = pd.merge(rast,wayback, how="left", on="name")
+    merged.to_csv("merged_coffee.csv")
 
 if __name__ == "__main__":
     main()
