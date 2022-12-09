@@ -19,23 +19,24 @@ def main():
         raw['url'] = raw['url'].str.rstrip("'}").str.lstrip("{'url': '")
         # -----------prices & weight-----------
         # 250g
-        # split pricing into multiple columns from one column like 250g à 10.00 CHF into 3 columns for weight, numeric price
+        # split pricing into multiple columns from one column like 250g à 10.00 CHF
+        # into 3 columns for weight, numeric price
         # and currency
 
-        # first we spllit weight and price
+        # first we split weight and price
         raw[['Weight250', "price250gcurrency"]] = raw.price_250g.str.split('à ', expand=True)
 
         # split price in two columns currency and numeric value
-        raw[['curreny', "price250"]] = raw.price250gcurrency.str.split(' ', expand=True)
+        raw[['currency', "price250"]] = raw.price250gcurrency.str.split(' ', expand=True)
 
         # remove the g in the weight column
         raw['Weight250'] = raw['Weight250'].str.rstrip(" g ")
 
-        # similar for 1000g
+        # similar for 1000g, the letter à can be used to separate these two information
         raw[['Weight1000', "price1000gcurrency"]] = raw.price_1000g.str.split('à ', expand=True)
 
         # split price in two columns currency and numeric value
-        raw[['curreny', "price1000"]] = raw.price1000gcurrency.str.split(' ', expand=True)
+        raw[['currency', "price1000"]] = raw.price1000gcurrency.str.split(' ', expand=True)
 
         # remove the g in the weight column
         raw['Weight1000'] = raw['Weight1000'].str.rstrip(" g ")
@@ -44,14 +45,18 @@ def main():
         # -----------origin and typ-----------
 
         # splitting the information in the origin_typ field into two separate fields
-        raw[['typ', 'origin_list']] = raw.typ_origin.str.split(pat="\n", expand=True)
+        raw[['type', 'origin_list']] = raw.typ_origin.str.split(pat="\n", expand=True)
         raw = raw.drop('typ_origin', axis=1)
         raw['origin_list'] = raw['origin_list'].str.replace(" ", "")
-
-        raw[['country1', 'country2', 'country3', 'country4', 'country5']] = raw['origin_list'].str.split(',', expand=True)
+        # creating new columns and filling them with the values of the origin_list, splitting by the comma-separator
+        raw[
+            ['country1', 'country2',
+             'country3', 'country4',
+             'country5']
+        ] = raw['origin_list'].str.split(',', expand=True)
 
         # -----------roastlevel-----------
-        # these infomation are only available for the current page,
+        # these information are only available for the current page,
         # therefore the try-except handels missing values from the archive.org
 
         try:
@@ -60,16 +65,18 @@ def main():
             raw['roastlevel'] = raw['roastlevel'].str.rstrip("%;']").str.lstrip("['right: ")
             # adjust datatype to float
             raw['roastlevel'] = pd.to_numeric(raw['roastlevel'])
-            # roastlevel is shown on a scale pointing from the right side. Correcting it in this way
+            # roastlevel is shown on a scale element on the webpage,
+            # pointing from the right side. Correcting it in this way, as it is changed with a lambda function
             raw['roastlevel'] = raw['roastlevel'].apply(lambda x: x * (-1) + 100)
 
             # new column with standardized categories for comparing with other data and roasteries
-
             roastlevel = raw['roastlevel']
-
-            cond_list = [roastlevel < 20.00, roastlevel < 40.00, roastlevel < 60.00, roastlevel < 80, roastlevel >= 80]
+            # creating a list for the values of the categories
+            cond_list = [roastlevel < 20.00, roastlevel < 40.00, roastlevel < 60.00,
+                         roastlevel < 80, roastlevel >= 80]
+            # simplifying the naming of the roast level values, same scale as other roastery.
             choice_list = ["1", "2", "3", "4", "5"]
-
+            # new column with a categorical value, based of the original percent values.
             raw["roastlevel_cat"] = np.select(cond_list, choice_list)
 
             # -----------labels-----------
@@ -98,24 +105,32 @@ def main():
             raw['chart_values'] = chart_raw_values
 
             # list for labels for naming the new columns, in the correct order
-            chart_labels = ["Süsse", "Bitterkeit", "Blumig", "Fruchtig", "Nussig", "Würzig", "Röstartig", "Körper",
-                            "Abgang", "Säure"]
+            chart_labels = ["sweetness", "bitterness", "floweriness", "fruitiness", "nutty", "spicy", "roasty", "body",
+                            "finish", "acidity"]
 
             # split by comma and use labels for naming
             raw[chart_labels] = raw['chart_values'].str.split(',', expand=True)
 
-            # droping non needed columns
-            raw = raw.drop(['Unnamed: 0', 'price_250g', 'price_1000g', 'chartjs', 'chart_values', 'price1000gcurrency', 'price250gcurrency'], axis=1)
+            # dropping non needed columns, as these aren't used for the
+            # analysis and will therefore not be uploaded
+            raw = raw.drop(['Unnamed: 0', 'price_250g', 'price_1000g',
+                            'chartjs', 'chart_values', 'price1000gcurrency',
+                            'price250gcurrency'], axis=1)
 
-
-            #write data in csv file
+            # write data from the current rast page in csv file
             raw.to_csv("coffee_cleaned_rast_{}.csv".format(index))
         except KeyError:
-            #on archive.org page the roastlevel, labels and chart values aren't avaible,
+            # on archive.org page the roastlevel, labels and chart values aren't avaible,
             # the wayback csv can be created instead
-            raw = raw.drop(['Unnamed: 0', 'price_250g', 'price_1000g', 'price1000gcurrency', 'price250gcurrency'], axis=1)
+            raw = raw.drop(['Unnamed: 0', 'price_250g', 'price_1000g',
+                            'price1000gcurrency', 'price250gcurrency'], axis=1)
 
+            # rename column for price to make it different to current price
+            raw = raw.rename(columns={"price1000": "price1000_wayback", "price250": "price_250_wayback"})
+
+            # write csv file for wayback machine
             raw.to_csv("coffee_cleaned_wayback_{}.csv".format(index))
 
+
 if __name__ == "__main__":
-        main()
+    main()
