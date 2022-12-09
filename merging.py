@@ -7,7 +7,7 @@ def main():
 
     # run the two scripts for scraping the data and cleaning them.
     #scraping_one.main()
-    cleaning.main()
+    #cleaning.main()
 
 
     #

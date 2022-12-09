@@ -20,7 +20,7 @@ def main():
 
     # Shop URL of coffee roastery displaying all the coffees available - list is expandable and writes
     # each scraping into a new csv file. Rule the current url, has to be the first element in the list.
-    page_urls = ['https://www.rastshop.ch/de', 'https://web.archive.org/web/20220118213133/https://www.rastshop.ch/de', 'https://web.archive.org/web/20220527174700/https://www.rastshop.ch/de']
+    page_urls = ['https://www.rastshop.ch/de', 'https://web.archive.org/web/20220118213133/https://www.rastshop.ch/de']
 
     # ---------------setup finished--------
     # get URL and open browser to start scrapping - loop takes first url, uses index to name the csv output
@@ -45,41 +45,41 @@ def main():
         coffee_timestamp = []
 
         for link in coffee_links:  # loop to get each url
-            url = link.get_attribute('href') # get the URL attribute (href)
-            coffee_urls.append({"url": url}) # append each URL into the empty list
-            #add the timestamp for each capturing
+            url = link.get_attribute('href')  # get the URL attribute (href)
+            coffee_urls.append({"url": url})  # append each URL into the empty list
+            # add the timestamp for each capturing
             coffee_timestamp.append(pd.to_datetime('now', utc=True))
 
         del coffee_urls[-1]
 
         # the name of the coffee is in another object so the xpath methode is used
         coffee_names = driver.find_elements(by=By.XPATH, value='//h3')
-        coffee_titel = []  # empty list for the names
+        coffee_title = []  # empty list for the names
         for name in coffee_names:  # loop to get each name
-            title = name.text # get the text of this element
-            coffee_titel.append(title) # add to list
-        del coffee_titel[-1]
+            title = name.text  # get the text of this element
+            coffee_title.append(title)  # add to list
+        del coffee_title[-1]
 
         # Country information from overview page
         coffee_typ_origins = []
         coffee_country = driver.find_elements(
-            by=By.CLASS_NAME,
+            by=By.CLASS_NAME,  # get value by class name within the card element
             value='absolute.text-small.left-2.bottom-1.text-beige-hue3.tracking-wider')
         for location in coffee_country:
             origin = location.text
             coffee_typ_origins.append(origin)
 
-        #extract aromatics from overview page
+        # extract aromatics from overview page
         coffee_aromas = []
         aroma_path = driver.find_elements(
-            by=By.XPATH,value='//*[@id="app"]/main/div[*]/div/div[*]/div[*]/div[*]/div/div[*]/div/dl/div[1]/dd')
+            by=By.XPATH, value='//*[@id="app"]/main/div[*]/div/div[*]/div[*]/div[*]/div/div[*]/div/dl/div[1]/dd')
         for aroma in aroma_path:
             aroma = aroma.get_attribute("innerHTML")
             coffee_aromas.append(aroma)
 
         # price information
 
-        #first for standard size of 250g (default value by webpage)
+        # first for standard size of 250g (default value by webpage)
         coffee_price_250 = []
         coffee_price_kg = []
         dropdown = driver.find_elements(by=By.XPATH, value="//*[contains(text(),'250 g')]")
@@ -95,8 +95,10 @@ def main():
         # add lists from the scrapped data into a pandas dataframe, which will be
         # expanded with more data from the specific coffee detail pages
         coffees = pd.DataFrame(
-            list(zip(coffee_titel, coffee_aromas,coffee_urls, coffee_typ_origins, coffee_price_250, coffee_price_kg, coffee_timestamp)),
-            columns=['name','taste', 'url', 'typ_origin', 'price_250g', 'price_1000g', 'timestamp'])
+            list(zip(coffee_title, coffee_aromas, coffee_urls,
+                     coffee_typ_origins, coffee_price_250,
+                     coffee_price_kg, coffee_timestamp)),
+            columns=['name', 'taste', 'url', 'typ_origin', 'price_250g', 'price_1000g', 'timestamp'])
         # adding a column with information about retailer. As all the coffees are from one
         # producer this value is fix.
         coffees["retailer"] = 'Rast Kaffee'
@@ -107,22 +109,22 @@ def main():
         if index > 0:
             coffees.to_csv("coffee_raw_wayback_{}.csv".format(index))
         else:
-        # three empty lists for the information of the detail page
+            # three empty lists for the information of the detail page
             coffee_roast_level = []
             coffee_label = []
             coffee_chart = []
 
-            #loop through the captured urls from the overview
+            # loop through the captured urls from the overview
             for i in coffee_urls:
                 # use the urls for the driver to visit each of the detail page, it is saved as dictionary
                 driver.get(i['url'])
                 roastlevel_path = driver.find_elements(
                     by=By.XPATH,
-                    value = '//*[@id="app"]/main/section[2]/div/div[1]/div[2]/div[2]/div[1]/div/div')
-                t=[]
-                for i in roastlevel_path:
+                    value='//*[@id="app"]/main/section[2]/div/div[1]/div[2]/div[2]/div[1]/div/div')
+                t = []
+                for path in roastlevel_path:
                     if roastlevel_path:
-                        roast_level = i.get_attribute('style')
+                        roast_level = path.get_attribute('style')
                         t.append(roast_level)
                     else:
                         t.append("NaN")
@@ -139,17 +141,17 @@ def main():
                 coffee_chart.append(chart)
 
                 # labels
-                #using if-else loop as only a minority (less than 50%) of
+                # using if-else loop as only a minority (less than 50%) of
                 # entries have one or more labels - therefore more efficient
 
                 # identify element
                 label_path = driver.find_elements(by=By.XPATH, value="//*[contains(text(), 'Label')]")
-                p=[]
+                p = []
 
-                for i in label_path:
+                for label in label_path:
 
                     if label_path:
-                        label = i.text
+                        label = label.text
                         p.append(label)
                     else:
                         p.append("NaN")
@@ -165,6 +167,7 @@ def main():
 
             # creating csv files for all the pages the driver is visiting
             coffees.to_csv("coffee_raw_rast_{}.csv".format(index))
+
 
 if __name__ == "__main__":
     main()
