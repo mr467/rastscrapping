@@ -12,17 +12,16 @@ def main():
 
     # -----------cleaning starts-----------
 
-
-
         # -----------url-----------
-        # removing unwanted {url: } part in the url column
+        # removing unwanted {url: } part in the url column using r- and l-strip
         raw['url'] = raw['url'].str.rstrip("'}").str.lstrip("{'url': '")
+
+
         # -----------prices & weight-----------
         # 250g
         # split pricing into multiple columns from one column like 250g à 10.00 CHF
         # into 3 columns for weight, numeric price
         # and currency
-
         # first we split weight and price
         raw[['Weight250', "price250gcurrency"]] = raw.price_250g.str.split('à ', expand=True)
 
@@ -40,13 +39,16 @@ def main():
 
         # remove the g in the weight column
         raw['Weight1000'] = raw['Weight1000'].str.rstrip(" g ")
+        # replace the 1 k information with 1000 as all information are in the same unit: g
         raw['Weight1000'] = raw['Weight1000'].replace(to_replace="1 k", value='1000')
 
         # -----------origin and typ-----------
 
-        # splitting the information in the origin_typ field into two separate fields
+        # splitting the information in the origin_typ field into two separate fields. Using string split
         raw[['type', 'origin_list']] = raw.typ_origin.str.split(pat="\n", expand=True)
+        # dropping the original column as it isn't needed anymore
         raw = raw.drop('typ_origin', axis=1)
+        # replacing empty spaces
         raw['origin_list'] = raw['origin_list'].str.replace(" ", "")
         # creating new columns and filling them with the values of the origin_list, splitting by the comma-separator
         raw[
@@ -57,16 +59,20 @@ def main():
 
         # -----------roastlevel-----------
         # these information are only available for the current page,
-        # therefore the try-except handels missing values from the archive.org
+        # therefore the try-except handles missing values from the archive.org
 
         try:
-            # first remove part of string to get only nummeric value
+            # first remove part of string to get only numeric value
 
             raw['roastlevel'] = raw['roastlevel'].str.rstrip("%;']").str.lstrip("['right: ")
-            # adjust datatype to float
+            # adjust datatype to a numeric value
             raw['roastlevel'] = pd.to_numeric(raw['roastlevel'])
-            # roastlevel is shown on a scale element on the webpage,
-            # pointing from the right side. Correcting it in this way, as it is changed with a lambda function
+            # The roast level is shown on a visual element on the webpage,
+            # displaying from the right side a marker (using negative values) on a "ruler" element,
+            # indicating the percentage of the roast level.
+            # But the information has to be corrected - to get the percentage from the left side
+            # Correcting it in this way, as it is changed with a lambda function.
+            # original value of -55 will be corrected into 45
             raw['roastlevel'] = raw['roastlevel'].apply(lambda x: x * (-1) + 100)
 
             # new column with standardized categories for comparing with other data and roasteries
@@ -77,6 +83,7 @@ def main():
             # simplifying the naming of the roast level values, same scale as other roastery.
             choice_list = ["1", "2", "3", "4", "5"]
             # new column with a categorical value, based of the original percent values.
+
             raw["roastlevel_cat"] = np.select(cond_list, choice_list)
 
             # -----------labels-----------
@@ -93,8 +100,8 @@ def main():
             # looping through chart rows, filtering for first [] brackets
             chart_raw_values = []
             for row in raw['chartjs']:
+                # regex is used to remove outer brackets
                 re.sub(r"[\[\]]", '', row)
-
                 # find() method will search the row and store the first index
                 mk1 = row.find('[') + 1
                 # find() method will search the row and store the second index
@@ -104,7 +111,8 @@ def main():
                 chart_raw_values.append(values)
             raw['chart_values'] = chart_raw_values
 
-            # list for labels for naming the new columns, in the correct order
+            # list for labels for naming the new columns, in the correct order.
+            # Order is found on the webpage displayed in the radar plot
             chart_labels = ["sweetness", "bitterness", "floweriness", "fruitiness", "nutty", "spicy", "roasty", "body",
                             "finish", "acidity"]
 
@@ -118,9 +126,9 @@ def main():
                             'price250gcurrency'], axis=1)
 
             # write data from the current rast page in csv file
-            raw.to_csv("coffee_cleaned_rast_{}.csv".format(index))
+            raw.to_csv("coffee_cleaned_rast_stage2.csv")
         except KeyError:
-            # on archive.org page the roastlevel, labels and chart values aren't avaible,
+            # on archive.org page the roast level, labels and chart values aren't available,
             # the wayback csv can be created instead
             raw = raw.drop(['Unnamed: 0', 'price_250g', 'price_1000g',
                             'price1000gcurrency', 'price250gcurrency'], axis=1)
@@ -129,7 +137,7 @@ def main():
             raw = raw.rename(columns={"price1000": "price1000_wayback", "price250": "price_250_wayback"})
 
             # write csv file for wayback machine
-            raw.to_csv("coffee_cleaned_wayback_{}.csv".format(index))
+            raw.to_csv("coffee_cleaned_wayback_stage2.csv")
 
 
 if __name__ == "__main__":
