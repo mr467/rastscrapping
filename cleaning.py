@@ -10,9 +10,14 @@ def main():
     for index, item in enumerate(files):
         raw = pd.read_csv(item)
 
+    # ------------------Author of this code------------------
+    # Student A: Rieder
+
     # -----------cleaning starts-----------
 
         # -----------url-----------
+        # Print out to console to inform that cleaning script is started and running
+        print("Cleaning in progress...")
         # removing unwanted {url: } part in the url column using r- and l-strip
         raw['url'] = raw['url'].str.rstrip("'}").str.lstrip("{'url': '")
 

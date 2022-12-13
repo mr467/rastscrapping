@@ -8,9 +8,15 @@ def main():
     from selenium.webdriver.chrome.options import Options
     import os
     import logging
+
+    # ------------------Author of this code------------------
+    # Student A: Rieder
+
     # ------------Setup chrome options------------
-    chrome_options = Options()
+
+    chrome_options = Options()  #Setup
     chrome_options.add_argument("--no-sandbox")
+    # Headless mode, as it is fine running in the back
     chrome_options.add_argument("--headless")
     chrome_options.headless = True
 
@@ -36,7 +42,8 @@ def main():
 
         # using item to get driver to the right page
         driver.get(item)
-
+        # Use console to check where the current scrapping progress is.
+        print("Scrapping in progress, current on iteration: {}...".format(index))
         # Click on Accept cookies to get the banner away, as it can interfere with the driver
         # Set 2 seconds for a buffer to wait till everything is loaded
         time.sleep(2)
@@ -128,6 +135,8 @@ def main():
 
         # Links for the detail pages aren't existing for archive.org pages, therefore
         # checking if index of urls is larger than zero.  If it is zero, it scrapes all the details.
+        # print out to console to confirm end of overview page
+        print("Overview page is scrapped")
         if index > 0:
             # for the wayback machine this is the final stage of scraping, the csv is produced
             # string formatting in case more than one archive page is scrapped.
@@ -200,10 +209,10 @@ def main():
             coffees['label'] = coffee_label
             coffees['roastlevel'] = coffee_roast_level
             coffees['chartjs'] = coffee_chart
-
+            # print in console end of scrapping of detail page
+            print("Detail page is scrapped")
             # creating csv files for all the pages the driver is visiting
-            coffees.to_csv("coffee_raw_rast_{}_stage1.csv".format(index))
-
+            coffees.to_csv("coffee_raw_rast_stage1_.csv")
 
 if __name__ == "__main__":
     main()

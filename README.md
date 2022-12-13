@@ -1,1 +1,22 @@
-# rast scrapping
+# Rast Coffee scrapping
+
+Welcome to my first web scraping project. This is part of a course at the HSLU Lucerne. 
+
+## Goal
+
+Scraping websites together with two colleagues and bringing all the information together to gain knowledge.
+We choose the topic of coffee. 
+This part of the project shows the scraping of the Rast Roastery (www.rastshop.ch). 
+Their coffees are great and tasty, you should try them out!
+
+The scripts are in an order.
+
+1. Scraping_one.py: uses selenium to get the information from the pages including the main page and the information on the wayback machine. In the archive folder are two separated files.
+2. cleaning.py: The data from the selenium scrapping are mixed up and need preparation and cleaning. This script cleans, splits, replaces, extracts etc. the data.
+3. merging.py: Merges the two information from the main page and the wayback machine. In this case it uses mainly price information to merge with the main page.
+4. exportToMariaDB.py: Creates a table and loads the data into it, using MariaDB
+
+## Legal
+The robots.txt file of rastshop.ch allows bots to scrape the page, 
+at the time this code was writen (December 2022). 
+Always check if it is allowed, otherwise ask domain owners.

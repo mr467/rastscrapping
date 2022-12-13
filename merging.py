@@ -14,7 +14,8 @@ def main():
     # can be commented out if files already exist
 
     cleaning.main()
-
+    # Print out to console to inform that merging of csv files is started and running
+    print("Merging in progress...")
     # read the cleaned csv files from the other scripts. One for the current rast homepage
     rast = pd.read_csv("coffee_cleaned_rast_stage2.csv")
     # and one for the archive.org from the wayback machine
@@ -35,7 +36,8 @@ def main():
     ])
     # set index to one
     merged.index = np.arange(1, len(merged) + 1)
-
+    # print out to inform about end of scrapping, cleaning and merging of files
+    print("Merging finished")
     # write data in one csv file - result of scraping and cleaning process
     merged.to_csv("merged_final_coffee.csv")
 
